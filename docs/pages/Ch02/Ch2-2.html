@@ -288,7 +288,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#variable"><b>1. </b>variable</a></li><ul><li><span class="title-icon "></span><a href="#variable_1"><b>1.1. </b>variable</a></li></ul></ul></div><a href="#variable" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="variable"><a name="variable" class="anchor-navigation-ex-anchor" href="#variable"><i class="fa fa-link" aria-hidden="true"></i></a>1. variable</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#variable"><b>1. </b>variable</a></li><ul><li><span class="title-icon "></span><a href="#variable_1"><b>1.1. </b>variable</a></li><li><span class="title-icon "></span><a href="#list-initializer"><b>1.2. </b>list initializer</a></li><li><span class="title-icon "></span><a href="#declare-and-define"><b>1.3. </b>declare and define</a></li><li><span class="title-icon "></span><a href="#operater-scope"><b>1.4. </b>:: operater, scope</a></li></ul></ul></div><a href="#variable" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="variable"><a name="variable" class="anchor-navigation-ex-anchor" href="#variable"><i class="fa fa-link" aria-hidden="true"></i></a>1. variable</h1>
 <h2 id="variable_1"><a name="variable_1" class="anchor-navigation-ex-anchor" href="#variable_1"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. variable</h2>
 <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
@@ -301,7 +301,68 @@
 }
 </code></pre>
 <pre><code>2
+</code></pre><h2 id="list-initializer"><a name="list-initializer" class="anchor-navigation-ex-anchor" href="#list-initializer"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. list initializer</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">int</span> i0 = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> i1 = {<span class="hljs-number">0</span>};   <span class="hljs-comment">// list initialization</span>
+    <span class="hljs-keyword">int</span> i2{<span class="hljs-number">0</span>};      <span class="hljs-comment">// list initialization</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">i3</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;
+    <span class="hljs-built_in">cout</span>&lt;&lt; i0 &lt;&lt; i1 &lt;&lt; i2 &lt;&lt; i3 &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> ldvalue = <span class="hljs-number">3.14592654</span>;
+
+    <span class="hljs-comment">// error, truncate not allowed for list initialization</span>
+    <span class="hljs-comment">// int ia{ldvalue};    </span>
+    <span class="hljs-comment">// int ib = {ldvalue};</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">ic</span><span class="hljs-params">(ldvalue)</span></span>;    <span class="hljs-comment">// ok, truncated</span>
+    <span class="hljs-keyword">int</span> id = ldvalue;   <span class="hljs-comment">// ok, truncated</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; ic &lt;&lt; id &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> emptystr;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;emptystr=&quot;</span> &lt;&lt; emptystr &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+<h2 id="declare-and-define"><a name="declare-and-define" class="anchor-navigation-ex-anchor" href="#declare-and-define"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. declare and define</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> i; <span class="hljs-comment">// declaration and not define</span>
+
+<span class="hljs-comment">// warning: &apos;j&apos; initialized and declared &apos;extern&apos;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> j = <span class="hljs-number">8</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; <span class="hljs-comment">// declare and define</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; j &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="operater-scope"><a name="operater-scope" class="anchor-navigation-ex-anchor" href="#operater-scope"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. :: operater, scope</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>; <span class="hljs-comment">// use std namaspace</span>
+
+<span class="hljs-keyword">int</span> globalint = <span class="hljs-number">666</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">int</span> globalint = <span class="hljs-number">555</span>;
+    <span class="hljs-comment">// mask the global one</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; globalint &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 555</span>
+
+    <span class="hljs-comment">// use :: to get the real global one</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; ::globalint &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 666</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -344,7 +405,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2 variables","level":"1.3.2","depth":2,"next":{"title":"3 compound types","level":"1.3.3","depth":2,"path":"pages/Ch02/Ch2-3.md","ref":"pages/Ch02/Ch2-3.md","articles":[]},"previous":{"title":"1 primitive built-in types","level":"1.3.1","depth":2,"path":"pages/Ch02/Ch2-1.md","ref":"pages/Ch02/Ch2-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch02/Ch2-2.md","mtime":"2023-09-15T00:46:29.006Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-15T01:24:50.744Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2 variables","level":"1.3.2","depth":2,"next":{"title":"3 compound types","level":"1.3.3","depth":2,"path":"pages/Ch02/Ch2-3.md","ref":"pages/Ch02/Ch2-3.md","articles":[]},"previous":{"title":"1 primitive built-in types","level":"1.3.1","depth":2,"path":"pages/Ch02/Ch2-1.md","ref":"pages/Ch02/Ch2-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch02/Ch2-2.md","mtime":"2023-09-18T00:25:57.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-18T01:05:17.448Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

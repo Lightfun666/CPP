@@ -288,20 +288,78 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#compount-types"><b>1. </b>compount types</a></li><ul><li><span class="title-icon "></span><a href="#variable"><b>1.1. </b>variable</a></li></ul></ul></div><a href="#compount-types" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="compount-types"><a name="compount-types" class="anchor-navigation-ex-anchor" href="#compount-types"><i class="fa fa-link" aria-hidden="true"></i></a>1. compount types</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#compount-types"><b>1. </b>compount types</a></li><ul><li><span class="title-icon "></span><a href="#variable"><b>1.1. </b>variable</a></li><li><span class="title-icon "></span><a href="#declare-multiple-variable"><b>1.2. </b>declare multiple variable</a></li><li><span class="title-icon "></span><a href="#pointer-to-pointer"><b>1.3. </b>pointer to pointer</a></li><li><span class="title-icon "></span><a href="#reference-to-pointer"><b>1.4. </b>reference to pointer</a></li></ul></ul></div><a href="#compount-types" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="compount-types"><a name="compount-types" class="anchor-navigation-ex-anchor" href="#compount-types"><i class="fa fa-link" aria-hidden="true"></i></a>1. compount types</h1>
 <h2 id="variable"><a name="variable" class="anchor-navigation-ex-anchor" href="#variable"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. variable</h2>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
-<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;ch2-3&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> value = <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">int</span>* ptr = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// Initialize a pointer with nullptr, indicating it currently doesn&apos;t point anywhere</span>
+    <span class="hljs-keyword">int</span>&amp; ref = value;   <span class="hljs-comment">// Create a reference that refers to the variable &apos;value&apos;</span>
+
+    ptr = &amp;value;       <span class="hljs-comment">// Set ptr to point to the address of &apos;value&apos;</span>
+    <span class="hljs-comment">// ref = &amp;value;    // This is an error; a reference cannot be re-pointed to another variable</span>
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;value: &quot;</span> &lt;&lt; value &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;ptr: &quot;</span> &lt;&lt; ptr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>; <span class="hljs-comment">// Print the address stored in the pointer</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;ref: &quot;</span> &lt;&lt; ref &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>; <span class="hljs-comment">// Print the value referred to by the reference</span>
+
+    <span class="hljs-comment">// Modify the variable&apos;s value using the pointer</span>
+    *ptr = <span class="hljs-number">100</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Modified value through pointer: &quot;</span> &lt;&lt; value &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<pre><code>2
+<pre><code>value: 42
+ptr: 0x7ffdd72305ac
+ref: 42
+Modified value through pointer: 100
+</code></pre><h2 id="declare-multiple-variable"><a name="declare-multiple-variable" class="anchor-navigation-ex-anchor" href="#declare-multiple-variable"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. declare multiple variable</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;typeinfo&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span>* iptr, ivalue; <span class="hljs-comment">// iptr is pointer, ivalue is int</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-keyword">typeid</span>(iptr).name() &lt;&lt; <span class="hljs-built_in">endl</span>;    <span class="hljs-comment">// Pi</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-keyword">typeid</span>(ivalue).name() &lt;&lt; <span class="hljs-built_in">endl</span>;  <span class="hljs-comment">// i</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+<h2 id="pointer-to-pointer"><a name="pointer-to-pointer" class="anchor-navigation-ex-anchor" href="#pointer-to-pointer"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. pointer to pointer</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> value = <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">int</span>* ptr = &amp;value;    <span class="hljs-comment">// pointer to int</span>
+    <span class="hljs-keyword">int</span>** ptr_to_ptr = &amp;ptr; <span class="hljs-comment">// pointer to pointer</span>
+
+    <span class="hljs-comment">// use to pointer to get value</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Value via ptr_to_ptr: &quot;</span> &lt;&lt; **ptr_to_ptr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="reference-to-pointer"><a name="reference-to-pointer" class="anchor-navigation-ex-anchor" href="#reference-to-pointer"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. reference to pointer</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> value = <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">int</span>* ptr = &amp;value;
+    <span class="hljs-keyword">int</span>*&amp; ref_to_ptr = ptr; <span class="hljs-comment">// reference to pointer</span>
+
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Value via ref_to_ptr: &quot;</span> &lt;&lt; *ref_to_ptr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    *ref_to_ptr = <span class="hljs-number">100</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Modified value via ref_to_ptr: &quot;</span> &lt;&lt; *ref_to_ptr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -344,7 +402,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3 compound types","level":"1.3.3","depth":2,"next":{"title":"4 const","level":"1.3.4","depth":2,"path":"pages/Ch02/Ch2-4.md","ref":"pages/Ch02/Ch2-4.md","articles":[]},"previous":{"title":"2 variables","level":"1.3.2","depth":2,"path":"pages/Ch02/Ch2-2.md","ref":"pages/Ch02/Ch2-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch02/Ch2-3.md","mtime":"2023-09-15T00:46:38.587Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-15T01:24:50.744Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3 compound types","level":"1.3.3","depth":2,"next":{"title":"4 const","level":"1.3.4","depth":2,"path":"pages/Ch02/Ch2-4.md","ref":"pages/Ch02/Ch2-4.md","articles":[]},"previous":{"title":"2 variables","level":"1.3.2","depth":2,"path":"pages/Ch02/Ch2-2.md","ref":"pages/Ch02/Ch2-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch02/Ch2-3.md","mtime":"2023-09-18T01:03:57.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-18T01:05:17.448Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
