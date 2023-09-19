@@ -288,20 +288,94 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#const"><b>1. </b>const</a></li><ul><li><span class="title-icon "></span><a href="#variable"><b>1.1. </b>variable</a></li></ul></ul></div><a href="#const" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="const"><a name="const" class="anchor-navigation-ex-anchor" href="#const"><i class="fa fa-link" aria-hidden="true"></i></a>1. const</h1>
-<h2 id="variable"><a name="variable" class="anchor-navigation-ex-anchor" href="#variable"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. variable</h2>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#const"><b>1. </b>const</a></li><ul><li><span class="title-icon "></span><a href="#const-initialization"><b>1.1. </b>const initialization</a></li><li><span class="title-icon "></span><a href="#pointer-and-const"><b>1.2. </b>pointer and const</a></li><li><span class="title-icon "></span><a href="#constexpr"><b>1.3. </b>constexpr</a></li></ul></ul></div><a href="#const" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="const"><a name="const" class="anchor-navigation-ex-anchor" href="#const"><i class="fa fa-link" aria-hidden="true"></i></a>1. const</h1>
+<h2 id="const-initialization"><a name="const-initialization" class="anchor-navigation-ex-anchor" href="#const-initialization"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. const initialization</h2>
 <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
+<span class="hljs-comment">// in .h file</span>
+<span class="hljs-comment">// declaration can make buf_size used in other .cpp if </span>
+<span class="hljs-comment">// include.</span>
+<span class="hljs-comment">// exter const int buf_size;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> buf_size = <span class="hljs-number">128</span>;
+
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;ch2-4&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> cj = <span class="hljs-number">44</span>;
+
+    <span class="hljs-comment">// error: assign to const is</span>
+    <span class="hljs-comment">// j = 66;</span>
+
+    <span class="hljs-comment">// cannot bind non-const lvalue reference of type </span>
+    <span class="hljs-comment">// &apos;int&amp;&apos; to an rvalue of type &apos;int&apos;</span>
+    <span class="hljs-comment">// int &amp;i = 2 * 2;</span>
+
+    <span class="hljs-comment">// const reference bind to temporary value(r-value)</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;cir = <span class="hljs-number">2</span> * <span class="hljs-number">2</span>; 
+
+
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">6</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri0 = i;     <span class="hljs-comment">// bind to int</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri1 = i * <span class="hljs-number">2</span>; <span class="hljs-comment">// bind to temporary (r-value)</span>
+
+    <span class="hljs-comment">// error: ri0 is reference of const</span>
+    <span class="hljs-comment">// can not used to change value</span>
+    <span class="hljs-comment">// ri0 = 7;</span>
+
+    <span class="hljs-keyword">double</span> d = <span class="hljs-number">3.1415</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri2 = d; <span class="hljs-comment">// temporary value is created</span>
+
+
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<pre><code>2
+<h2 id="pointer-and-const"><a name="pointer-and-const" class="anchor-navigation-ex-anchor" href="#pointer-and-const"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. pointer and const</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.1415</span>;
+
+    <span class="hljs-comment">// error: const double* to double*</span>
+    <span class="hljs-comment">// double *ptr = &amp;pi; </span>
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *cptr = &amp;pi;
+
+    <span class="hljs-comment">// error: assign const double value</span>
+    <span class="hljs-comment">// *cptr = 42;</span>
+
+    <span class="hljs-keyword">double</span> dval = <span class="hljs-number">3.1415</span>;
+    cptr = &amp;dval;
+
+    <span class="hljs-keyword">int</span> ivalue = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> curErr = &amp;ivalue;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *<span class="hljs-keyword">const</span> dp = &amp;pi;
+    <span class="hljs-comment">// dp is const pointer to const double</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+<h2 id="constexpr"><a name="constexpr" class="anchor-navigation-ex-anchor" href="#constexpr"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. constexpr</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-comment">// constexpr value can not be changed</span>
+    <span class="hljs-comment">// and evaluate in compile time</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">123</span>;
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> j = i + <span class="hljs-number">123</span>; <span class="hljs-comment">// j is const int</span>
+
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p0 = &amp;i; <span class="hljs-comment">// const pointer to const int</span>
+
+    <span class="hljs-keyword">int</span> k = <span class="hljs-number">6</span>;
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> *p1 = &amp;k; <span class="hljs-comment">// const pointer to int</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -344,7 +418,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 const","level":"1.3.4","depth":2,"next":{"title":"5 types","level":"1.3.5","depth":2,"path":"pages/Ch02/Ch2-5.md","ref":"pages/Ch02/Ch2-5.md","articles":[]},"previous":{"title":"3 compound types","level":"1.3.3","depth":2,"path":"pages/Ch02/Ch2-3.md","ref":"pages/Ch02/Ch2-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch02/Ch2-4.md","mtime":"2023-09-15T00:46:46.483Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-18T01:05:17.448Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 const","level":"1.3.4","depth":2,"next":{"title":"5 types","level":"1.3.5","depth":2,"path":"pages/Ch02/Ch2-5.md","ref":"pages/Ch02/Ch2-5.md","articles":[]},"previous":{"title":"3 compound types","level":"1.3.3","depth":2,"path":"pages/Ch02/Ch2-3.md","ref":"pages/Ch02/Ch2-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch02/Ch2-4.md","mtime":"2023-09-19T01:13:07.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-19T01:25:19.231Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
