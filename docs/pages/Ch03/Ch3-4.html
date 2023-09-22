@@ -385,18 +385,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#primitive-built-in-type"><b>1. </b>primitive built-in type</a></li><ul><li><span class="title-icon "></span><a href="#type-conversions"><b>1.1. </b>type conversions</a></li></ul></ul></div><a href="#primitive-built-in-type" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="primitive-built-in-type"><a name="primitive-built-in-type" class="anchor-navigation-ex-anchor" href="#primitive-built-in-type"><i class="fa fa-link" aria-hidden="true"></i></a>1. primitive built-in type</h1>
-<h2 id="type-conversions"><a name="type-conversions" class="anchor-navigation-ex-anchor" href="#type-conversions"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. type conversions</h2>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#iterator"><b>1. </b>iterator</a></li><ul><li><span class="title-icon "></span><a href="#iterator-of-string-and-vector"><b>1.1. </b>iterator of string and vector</a></li><li><span class="title-icon "></span><a href="#constiterator"><b>1.2. </b>const_iterator</a></li></ul></ul></div><a href="#iterator" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="iterator"><a name="iterator" class="anchor-navigation-ex-anchor" href="#iterator"><i class="fa fa-link" aria-hidden="true"></i></a>1. iterator</h1>
+<h2 id="iterator-of-string-and-vector"><a name="iterator-of-string-and-vector" class="anchor-navigation-ex-anchor" href="#iterator-of-string-and-vector"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. iterator of string and vector</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-keyword">bool</span> bb = <span class="hljs-number">4</span>;            <span class="hljs-comment">// b  &lt;- true</span>
-    <span class="hljs-keyword">int</span> ii = bb;            <span class="hljs-comment">// i  &lt;- 1</span>
-    ii = <span class="hljs-number">3.14</span>;              <span class="hljs-comment">// i  &lt;- 3</span>
-    <span class="hljs-keyword">double</span> pi = ii;         <span class="hljs-comment">// pi &lt;- 3.0</span>
-    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> c0= <span class="hljs-number">-1</span>;   <span class="hljs-comment">// c0  &lt;- 255</span>
-    <span class="hljs-keyword">signed</span> <span class="hljs-keyword">char</span> c1 = <span class="hljs-number">256</span>;   <span class="hljs-comment">// c1 undefined</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;hello&quot;</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">string</span>::iterator it = str.begin(); it != str.end(); it++)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="hljs-string">&apos;-&apos;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// h-e-l-l-o-</span>
+
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; vec = { <span class="hljs-string">&quot;say&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;to&quot;</span>, <span class="hljs-string">&quot;the&quot;</span> , <span class="hljs-string">&quot;world&quot;</span>};
+
+
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::iterator begin = vec.begin();
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::iterator end = vec.end();
+    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::iterator it = begin; it != end; it++)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="hljs-string">&apos;-&apos;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// say-hello-to-the-world-</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="constiterator"><a name="constiterator" class="anchor-navigation-ex-anchor" href="#constiterator"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. const_iterator</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; vec = { <span class="hljs-string">&quot;say&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;to&quot;</span>, <span class="hljs-string">&quot;the&quot;</span> , <span class="hljs-string">&quot;world&quot;</span>};
+
+    <span class="hljs-comment">// error: const vector can only use const_iterator</span>
+    <span class="hljs-comment">// vector&lt;string&gt;::iterator begin0 = vec.begin();</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::const_iterator begin = vec.cbegin();
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::const_iterator end = vec.cend();
+    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::const_iterator it = begin; it != end; it++)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
@@ -443,7 +484,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 interator","level":"1.4.4","depth":2,"next":{"title":"5 array","level":"1.4.5","depth":2,"path":"pages/Ch03/Ch3-5.md","ref":"pages/Ch03/Ch3-5.md","articles":[]},"previous":{"title":"3 std::vector","level":"1.4.3","depth":2,"path":"pages/Ch03/Ch3-3.md","ref":"pages/Ch03/Ch3-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch03/Ch3-4.md","mtime":"2023-09-20T00:44:23.141Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-21T01:32:55.407Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 interator","level":"1.4.4","depth":2,"next":{"title":"5 array","level":"1.4.5","depth":2,"path":"pages/Ch03/Ch3-5.md","ref":"pages/Ch03/Ch3-5.md","articles":[]},"previous":{"title":"3 std::vector","level":"1.4.3","depth":2,"path":"pages/Ch03/Ch3-3.md","ref":"pages/Ch03/Ch3-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch03/Ch3-4.md","mtime":"2023-09-22T00:16:29.472Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-22T00:19:04.204Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
