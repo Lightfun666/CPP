@@ -385,18 +385,142 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#primitive-built-in-type"><b>1. </b>primitive built-in type</a></li><ul><li><span class="title-icon "></span><a href="#type-conversions"><b>1.1. </b>type conversions</a></li></ul></ul></div><a href="#primitive-built-in-type" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="primitive-built-in-type"><a name="primitive-built-in-type" class="anchor-navigation-ex-anchor" href="#primitive-built-in-type"><i class="fa fa-link" aria-hidden="true"></i></a>1. primitive built-in type</h1>
-<h2 id="type-conversions"><a name="type-conversions" class="anchor-navigation-ex-anchor" href="#type-conversions"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. type conversions</h2>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#array"><b>1. </b>array</a></li><ul><li><span class="title-icon "></span><a href="#initialization"><b>1.1. </b>initialization</a></li><li><span class="title-icon "></span><a href="#begin-end-ptrdifft"><b>1.2. </b>begin(), end(), ptrdiff_t</a></li><li><span class="title-icon "></span><a href="#c-style-string-and-array"><b>1.3. </b>C-style string and array</a></li></ul></ul></div><a href="#array" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="array"><a name="array" class="anchor-navigation-ex-anchor" href="#array"><i class="fa fa-link" aria-hidden="true"></i></a>1. array</h1>
+<h2 id="initialization"><a name="initialization" class="anchor-navigation-ex-anchor" href="#initialization"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. initialization</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> <span class="hljs-title">get_size</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">5</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">unsigned</span> cnt = <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">unsigned</span> sz = <span class="hljs-number">42</span>;
+
+    <span class="hljs-comment">// array declaration</span>
+    <span class="hljs-keyword">int</span> arr[<span class="hljs-number">10</span>];
+    <span class="hljs-keyword">int</span> *parr[sz];
+    <span class="hljs-built_in">string</span> strs[get_size()];
+
+    <span class="hljs-comment">// error: cnt is not const</span>
+    <span class="hljs-comment">//  string bad[cnt];</span>
+
+    <span class="hljs-keyword">int</span> ia1[sz] = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>};
+    <span class="hljs-keyword">int</span> a2[] = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>};
+    <span class="hljs-keyword">int</span> a3[<span class="hljs-number">5</span>] = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>};
+    <span class="hljs-built_in">string</span> a4[<span class="hljs-number">3</span>] = {<span class="hljs-string">&quot;hi&quot;</span>, <span class="hljs-string">&quot;bye&quot;</span>};
+
+    <span class="hljs-comment">// error : too many elements</span>
+    <span class="hljs-comment">// int a5[2] = {0, 1, 2};</span>
+
+    <span class="hljs-keyword">char</span> charr1[] = {<span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-string">&apos;+&apos;</span>, <span class="hljs-string">&apos;+&apos;</span>};
+    <span class="hljs-keyword">char</span> charr2[] = {<span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-string">&apos;+&apos;</span>, <span class="hljs-string">&apos;+&apos;</span>, <span class="hljs-string">&apos;\0&apos;</span>};
+    <span class="hljs-keyword">char</span> charr3[] = <span class="hljs-string">&quot;c++&quot;</span>;
+
+    <span class="hljs-comment">// error: string is too long</span>
+    <span class="hljs-comment">// const char charr4[6] = &quot;daniel&quot;;</span>
+
+    <span class="hljs-keyword">int</span> a[] = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>};
+    <span class="hljs-comment">// error: initialize array with array</span>
+    <span class="hljs-comment">// int a5[] = a;</span>
+
+    <span class="hljs-comment">// error: array can be assigned</span>
+    <span class="hljs-comment">// int a6[];</span>
+    <span class="hljs-comment">// a6 =a;</span>
+
+    <span class="hljs-keyword">int</span> (*ptrarr)[<span class="hljs-number">3</span>] = &amp;a; <span class="hljs-comment">// pointer to array</span>
+    <span class="hljs-keyword">int</span> (&amp;refarr)[<span class="hljs-number">3</span>] = a; <span class="hljs-comment">// reference to array</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="begin-end-ptrdifft"><a name="begin-end-ptrdifft" class="anchor-navigation-ex-anchor" href="#begin-end-ptrdifft"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. begin(), end(), ptrdiff_t</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstddef&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iterator&gt;</span></span>
+
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-keyword">bool</span> bb = <span class="hljs-number">4</span>;            <span class="hljs-comment">// b  &lt;- true</span>
-    <span class="hljs-keyword">int</span> ii = bb;            <span class="hljs-comment">// i  &lt;- 1</span>
-    ii = <span class="hljs-number">3.14</span>;              <span class="hljs-comment">// i  &lt;- 3</span>
-    <span class="hljs-keyword">double</span> pi = ii;         <span class="hljs-comment">// pi &lt;- 3.0</span>
-    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> c0= <span class="hljs-number">-1</span>;   <span class="hljs-comment">// c0  &lt;- 255</span>
-    <span class="hljs-keyword">signed</span> <span class="hljs-keyword">char</span> c1 = <span class="hljs-number">256</span>;   <span class="hljs-comment">// c1 undefined</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">size_t</span> array_size = <span class="hljs-number">5</span>;
+    <span class="hljs-comment">// size_t in &lt;cstddef&gt; define the array index</span>
+
+    <span class="hljs-keyword">int</span> ia[array_size] = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    <span class="hljs-keyword">for</span>  (<span class="hljs-keyword">size_t</span> idx = <span class="hljs-number">0</span>; idx &lt; array_size ; idx++)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; ia[idx];
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// auto, array --&gt; ptr</span>
+    <span class="hljs-function"><span class="hljs-keyword">auto</span> <span class="hljs-title">ptrarr1</span><span class="hljs-params">(ia)</span></span>; <span class="hljs-comment">// ptrarr1 is int*</span>
+    <span class="hljs-function"><span class="hljs-keyword">auto</span> <span class="hljs-title">ptrarr2</span><span class="hljs-params">(&amp;ia[<span class="hljs-number">0</span>])</span></span>; <span class="hljs-comment">// ptrarr2 is int*</span>
+
+    <span class="hljs-comment">// decltype, keep the array type</span>
+    <span class="hljs-keyword">decltype</span>(ia) ia2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>};
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> *idx = ia; idx != &amp;ia[array_size]; idx++)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *idx;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// std::begin(), std::end() are defined in &lt;iterator&gt;</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> *idx = <span class="hljs-built_in">std</span>::begin(ia); idx != <span class="hljs-built_in">std</span>::end(ia); idx++)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *idx;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// ptrdiff_t defined in &lt;cstddef&gt;</span>
+    <span class="hljs-keyword">ptrdiff_t</span> diff = <span class="hljs-built_in">std</span>::end(ia) - <span class="hljs-built_in">std</span>::begin(ia);
+    <span class="hljs-built_in">cout</span> &lt;&lt; diff &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// element number of array</span>
+
+    <span class="hljs-keyword">int</span> *p = &amp;ia[<span class="hljs-number">2</span>];
+    <span class="hljs-comment">// p[-2] == ia[0];</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="c-style-string-and-array"><a name="c-style-string-and-array" class="anchor-navigation-ex-anchor" href="#c-style-string-and-array"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. C-style string and array</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstddef&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iterator&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iterator&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::begin;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::end;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">char</span> ca[] = {<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-string">&apos;\0&apos;</span>};
+
+    <span class="hljs-comment">// strlen() is defined in &lt;string.h&gt;</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">strlen</span>(ca) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 3</span>
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> ca1[] = <span class="hljs-string">&quot;abcde&quot;</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> ca2[] = <span class="hljs-string">&quot;ABCDE&quot;</span>;
+
+    <span class="hljs-comment">// error : comparison between two array</span>
+    <span class="hljs-comment">// cout &lt;&lt; (ca2 &gt; ca1) &lt;&lt; endl;</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">strcmp</span>(ca2, ca1) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// -1</span>
+
+    <span class="hljs-keyword">char</span> result[<span class="hljs-number">128</span>];
+    <span class="hljs-built_in">strcpy</span>(result, ca1);
+    <span class="hljs-built_in">strcat</span>(result, <span class="hljs-string">&quot;-&gt;&quot;</span>);
+    <span class="hljs-built_in">strcat</span>(result, ca2);
+    <span class="hljs-built_in">cout</span> &lt;&lt; result &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// abcde-&gt;ABCDE</span>
+
+    <span class="hljs-comment">// use array to initialize a vector</span>
+    <span class="hljs-keyword">int</span> int_arr[] = {<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>};
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; int_vec(begin(int_arr), end(int_arr));
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
@@ -443,7 +567,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5 array","level":"1.4.5","depth":2,"next":{"title":"6 multidimensional array","level":"1.4.6","depth":2,"path":"pages/Ch03/Ch3-6.md","ref":"pages/Ch03/Ch3-6.md","articles":[]},"previous":{"title":"4 interator","level":"1.4.4","depth":2,"path":"pages/Ch03/Ch3-4.md","ref":"pages/Ch03/Ch3-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch03/Ch3-5.md","mtime":"2023-09-20T00:44:23.141Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-22T00:19:04.204Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5 array","level":"1.4.5","depth":2,"next":{"title":"6 multidimensional array","level":"1.4.6","depth":2,"path":"pages/Ch03/Ch3-6.md","ref":"pages/Ch03/Ch3-6.md","articles":[]},"previous":{"title":"4 interator","level":"1.4.4","depth":2,"path":"pages/Ch03/Ch3-4.md","ref":"pages/Ch03/Ch3-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch03/Ch3-5.md","mtime":"2023-09-26T00:11:00.420Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-26T00:57:32.851Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
