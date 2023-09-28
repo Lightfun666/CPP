@@ -560,15 +560,91 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#type-conversion"><b>1. </b>type conversion</a></li><ul><li><span class="title-icon "></span><a href="#using"><b>1.1. </b>using</a></li></ul></ul></div><a href="#type-conversion" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="type-conversion"><a name="type-conversion" class="anchor-navigation-ex-anchor" href="#type-conversion"><i class="fa fa-link" aria-hidden="true"></i></a>1. type conversion</h1>
-<h2 id="using"><a name="using" class="anchor-navigation-ex-anchor" href="#using"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. using</h2>
-<p>using namespace::name;<br>using should not appear in header file</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#type-conversion"><b>1. </b>type conversion</a></li><ul><li><span class="title-icon "></span><a href="#staticcast"><b>1.1. </b>static_cast&lt;&gt;()</a></li><li><span class="title-icon "></span><a href="#constcast"><b>1.2. </b>const_cast&lt;&gt;()</a></li><li><span class="title-icon "></span><a href="#reinterpretcast"><b>1.3. </b>reinterpret_cast&lt;&gt;()</a></li><li><span class="title-icon "></span><a href="#old-style-casts"><b>1.4. </b>old-style casts</a></li></ul></ul></div><a href="#type-conversion" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="type-conversion"><a name="type-conversion" class="anchor-navigation-ex-anchor" href="#type-conversion"><i class="fa fa-link" aria-hidden="true"></i></a>1. type conversion</h1>
+<h2 id="staticcast"><a name="staticcast" class="anchor-navigation-ex-anchor" href="#staticcast"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. static_cast&lt;&gt;()</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;direct use cout from using,&quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot; std::endl; use std::&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// sample 1: double to int</span>
+    <span class="hljs-keyword">double</span> d = <span class="hljs-number">3.14</span>;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(d);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Double to int: &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// sample 2: pointers</span>
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">void</span>* ptr = &amp;x;
+    <span class="hljs-keyword">int</span>* ptrToInt = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>*&gt;(ptr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Pointer to int: &quot;</span> &lt;&lt; *ptrToInt &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// sample 3: class heirachy</span>
+    <span class="hljs-keyword">class</span> Base {
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> </span>{}
+    };
+    <span class="hljs-keyword">class</span> Derived : <span class="hljs-keyword">public</span> Base {};
+    Base* basePtr = <span class="hljs-keyword">new</span> Derived();
+    Derived* derivedPtr = <span class="hljs-keyword">static_cast</span>&lt;Derived*&gt;(basePtr);
+
+    <span class="hljs-comment">// sample 4: enum</span>
+    <span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> Color { Red, Green, Blue };
+    <span class="hljs-keyword">int</span> enumValue = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(Color::Green);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Enum to int: &quot;</span> &lt;&lt; enumValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="constcast"><a name="constcast" class="anchor-navigation-ex-anchor" href="#constcast"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. const_cast&lt;&gt;()</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">3</span>;                 <span class="hljs-comment">// i is not declared const</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>&amp; rci = i;
+    <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">int</span>&amp;&gt;(rci) = <span class="hljs-number">4</span>; <span class="hljs-comment">// OK: modifies i</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;i = &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>; <span class="hljs-comment">// i = 4</span>
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> j = <span class="hljs-number">3</span>; <span class="hljs-comment">// j is declared const</span>
+    <span class="hljs-keyword">int</span>* pj = <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">int</span>*&gt;(&amp;j);
+    *pj = <span class="hljs-number">4</span>;      <span class="hljs-comment">// undefined behavior</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; j &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="reinterpretcast"><a name="reinterpretcast" class="anchor-navigation-ex-anchor" href="#reinterpretcast"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. reinterpret_cast&lt;&gt;()</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">int</span>* intPtr = &amp;x;
+
+    <span class="hljs-comment">// int* to double*, and they are irrelevant</span>
+    <span class="hljs-keyword">double</span>* doublePtr = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-keyword">double</span>*&gt;(intPtr);
+    *doublePtr = <span class="hljs-number">3.14159</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;x = &quot;</span> &lt;&lt; x &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;  
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="old-style-casts"><a name="old-style-casts" class="anchor-navigation-ex-anchor" href="#old-style-casts"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. old-style casts</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-comment">// 2 kinds of old style conversion:</span>
+    <span class="hljs-comment">// type(expression);</span>
+    <span class="hljs-comment">// (type)expression;</span>
+
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">double</span> y = (<span class="hljs-keyword">double</span>)x; <span class="hljs-comment">// C style conversion</span>
+    <span class="hljs-keyword">double</span> y = <span class="hljs-keyword">double</span>(x); <span class="hljs-comment">// function like</span>
+    <span class="hljs-keyword">void</span>* voidPtr = (<span class="hljs-keyword">void</span>*)&amp;x; <span class="hljs-comment">// int* to void*</span>
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
@@ -615,7 +691,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11 type conversion","level":"1.5.11","depth":2,"next":{"title":"12 precedence","level":"1.5.12","depth":2,"path":"pages/Ch04/Ch4-12.md","ref":"pages/Ch04/Ch4-12.md","articles":[]},"previous":{"title":"10 comma","level":"1.5.10","depth":2,"path":"pages/Ch04/Ch4-10.md","ref":"pages/Ch04/Ch4-10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch04/Ch4-11.md","mtime":"2023-09-27T00:02:41.558Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-27T01:02:34.632Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11 type conversion","level":"1.5.11","depth":2,"next":{"title":"12 precedence","level":"1.5.12","depth":2,"path":"pages/Ch04/Ch4-12.md","ref":"pages/Ch04/Ch4-12.md","articles":[]},"previous":{"title":"10 comma","level":"1.5.10","depth":2,"path":"pages/Ch04/Ch4-10.md","ref":"pages/Ch04/Ch4-10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch04/Ch4-11.md","mtime":"2023-09-28T01:26:48.337Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-28T01:27:37.556Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

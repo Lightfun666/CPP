@@ -560,15 +560,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#increment-and-decrement"><b>1. </b>increment and decrement</a></li><ul><li><span class="title-icon "></span><a href="#using"><b>1.1. </b>using</a></li></ul></ul></div><a href="#increment-and-decrement" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="increment-and-decrement"><a name="increment-and-decrement" class="anchor-navigation-ex-anchor" href="#increment-and-decrement"><i class="fa fa-link" aria-hidden="true"></i></a>1. increment and decrement</h1>
-<h2 id="using"><a name="using" class="anchor-navigation-ex-anchor" href="#using"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. using</h2>
-<p>using namespace::name;<br>using should not appear in header file</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#increment-and-decrement"><b>1. </b>increment and decrement</a></li><ul><li><span class="title-icon "></span><a href="#--"><b>1.1. </b>++ --</a></li></ul></ul></div><a href="#increment-and-decrement" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="increment-and-decrement"><a name="increment-and-decrement" class="anchor-navigation-ex-anchor" href="#increment-and-decrement"><i class="fa fa-link" aria-hidden="true"></i></a>1. increment and decrement</h1>
+<h2 id="--"><a name="--" class="anchor-navigation-ex-anchor" href="#--"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. ++ --</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;direct use cout from using,&quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot; std::endl; use std::&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>, j;
+    j = ++i; <span class="hljs-comment">// j: 3, i: 3</span>
+    j = i++; <span class="hljs-comment">// j: 3, i: 4</span>
+
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; arr = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">-3</span>, <span class="hljs-number">4</span>};
+    <span class="hljs-keyword">auto</span> pbeg = arr.begin();
+    <span class="hljs-keyword">while</span>(pbeg != arr.end() &amp;&amp; *pbeg &gt;= <span class="hljs-number">0</span>)
+        <span class="hljs-built_in">cout</span> &lt;&lt; *pbeg++ &lt;&lt; <span class="hljs-string">&apos;-&apos;</span>;  <span class="hljs-comment">// equal to *(pbeg++)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// 1-2-</span>
+
+    pbeg = arr.begin();
+    *pbeg = (*pbeg++) + <span class="hljs-number">3</span>; 
+    <span class="hljs-comment">// arr: {1, 4, -3, 4}</span>
+    <span class="hljs-comment">// normally, right hand side be evaluated first</span>
+    <span class="hljs-comment">// maybe not always</span>
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
@@ -615,7 +632,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5 increment and decrement","level":"1.5.5","depth":2,"next":{"title":"6 member access","level":"1.5.6","depth":2,"path":"pages/Ch04/Ch4-6.md","ref":"pages/Ch04/Ch4-6.md","articles":[]},"previous":{"title":"4 assignment","level":"1.5.4","depth":2,"path":"pages/Ch04/Ch4-4.md","ref":"pages/Ch04/Ch4-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch04/Ch4-5.md","mtime":"2023-09-27T00:01:48.928Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-27T01:02:34.632Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5 increment and decrement","level":"1.5.5","depth":2,"next":{"title":"6 member access","level":"1.5.6","depth":2,"path":"pages/Ch04/Ch4-6.md","ref":"pages/Ch04/Ch4-6.md","articles":[]},"previous":{"title":"4 assignment","level":"1.5.4","depth":2,"path":"pages/Ch04/Ch4-4.md","ref":"pages/Ch04/Ch4-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch04/Ch4-5.md","mtime":"2023-09-28T00:20:57.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-28T01:27:37.556Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
