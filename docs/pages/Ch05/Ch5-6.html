@@ -655,12 +655,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#try-exception"><b>1. </b>try exception</a></li><ul><li><span class="title-icon "></span><a href="#priority"><b>1.1. </b>priority</a></li></ul></ul></div><a href="#try-exception" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="try-exception"><a name="try-exception" class="anchor-navigation-ex-anchor" href="#try-exception"><i class="fa fa-link" aria-hidden="true"></i></a>1. try exception</h1>
-<h2 id="priority"><a name="priority" class="anchor-navigation-ex-anchor" href="#priority"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. priority</h2>
-<pre><code class="lang-cpp">
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#try-exception"><b>1. </b>try exception</a></li><ul><li><span class="title-icon "></span><a href="#define-exception"><b>1.1. </b>define exception</a></li></ul></ul></div><a href="#try-exception" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="try-exception"><a name="try-exception" class="anchor-navigation-ex-anchor" href="#try-exception"><i class="fa fa-link" aria-hidden="true"></i></a>1. try exception</h1>
+<h2 id="define-exception"><a name="define-exception" class="anchor-navigation-ex-anchor" href="#define-exception"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. define exception</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 
+<span class="hljs-comment">// Define a custom exception class</span>
+<span class="hljs-keyword">class</span> MyException : <span class="hljs-keyword">public</span> <span class="hljs-built_in">std</span>::exception {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* <span class="hljs-title">what</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">noexcept</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Custom Exception: Something went wrong!&quot;</span>;
+    }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">int</span> numerator = <span class="hljs-number">10</span>;
+        <span class="hljs-keyword">int</span> denominator = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">if</span> (denominator == <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">throw</span> MyException(); <span class="hljs-comment">// Throwing a custom exception</span>
+        }
+
+        <span class="hljs-keyword">int</span> result = numerator / denominator;
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Result: &quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">const</span> MyException&amp; e) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Caught an exception: &quot;</span> &lt;&lt; e.what() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::exception&amp; e) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Caught a standard exception: &quot;</span> &lt;&lt; e.what() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
-
+<p>output</p>
+<pre><code>Caught an exception: Custom Exception: Something went wrong!
+</code></pre>
                                 
                                 </section>
                             
@@ -699,7 +729,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6 try exception","level":"1.6.6","depth":2,"previous":{"title":"5 jump","level":"1.6.5","depth":2,"path":"pages/Ch05/Ch5-5.md","ref":"pages/Ch05/Ch5-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch05/Ch5-6.md","mtime":"2023-10-02T00:34:03.037Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T03:04:43.432Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6 try exception","level":"1.6.6","depth":2,"previous":{"title":"5 jump","level":"1.6.5","depth":2,"path":"pages/Ch05/Ch5-5.md","ref":"pages/Ch05/Ch5-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch05/Ch5-6.md","mtime":"2023-10-02T06:13:35.744Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T06:14:01.201Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

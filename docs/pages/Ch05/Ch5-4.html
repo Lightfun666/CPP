@@ -657,12 +657,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#interative"><b>1. </b>interative</a></li><ul><li><span class="title-icon "></span><a href="#priority"><b>1.1. </b>priority</a></li></ul></ul></div><a href="#interative" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="interative"><a name="interative" class="anchor-navigation-ex-anchor" href="#interative"><i class="fa fa-link" aria-hidden="true"></i></a>1. interative</h1>
-<h2 id="priority"><a name="priority" class="anchor-navigation-ex-anchor" href="#priority"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. priority</h2>
-<pre><code class="lang-cpp">
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#interative"><b>1. </b>interative</a></li><ul><li><span class="title-icon "></span><a href="#while"><b>1.1. </b>while</a></li><li><span class="title-icon "></span><a href="#for"><b>1.2. </b>for</a></li><li><span class="title-icon "></span><a href="#init-statement-defines-multiple-vars"><b>1.3. </b>init-statement defines multiple vars</a></li><li><span class="title-icon "></span><a href="#fordecl--expr"><b>1.4. </b>for(decl : expr)</a></li><li><span class="title-icon "></span><a href="#do-while"><b>1.5. </b>do while</a></li></ul></ul></div><a href="#interative" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="interative"><a name="interative" class="anchor-navigation-ex-anchor" href="#interative"><i class="fa fa-link" aria-hidden="true"></i></a>1. interative</h1>
+<h2 id="while"><a name="while" class="anchor-navigation-ex-anchor" href="#while"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. while</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; <span class="hljs-comment">// Initialize a counter variable</span>
+
+    <span class="hljs-keyword">while</span> (i &lt;= <span class="hljs-number">5</span>) { <span class="hljs-comment">// While the condition is true</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot; &quot;</span>; <span class="hljs-comment">// Print the current value of i</span>
+        i++; <span class="hljs-comment">// Increment the counter</span>
+    }
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// Print a newline after the loop</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+<p>output</p>
+<pre><code>1 2 3 4 5
+</code></pre><h2 id="for"><a name="for" class="anchor-navigation-ex-anchor" href="#for"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. for</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) { <span class="hljs-comment">// Initialize, condition, and increment all in one line</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot; &quot;</span>; <span class="hljs-comment">// Print the current value of i</span>
+    }
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// Print a newline after the loop</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>1 2 3 4 5
+</code></pre><h2 id="init-statement-defines-multiple-vars"><a name="init-statement-defines-multiple-vars" class="anchor-navigation-ex-anchor" href="#init-statement-defines-multiple-vars"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. init-statement defines multiple vars</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">10</span>; i &lt;= <span class="hljs-number">5</span>; i++, j -= <span class="hljs-number">2</span>) {
+        <span class="hljs-comment">// Inside the loop, you can use the variables i and j</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;i: &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;, j: &quot;</span> &lt;&lt; j &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="fordecl--expr"><a name="fordecl--expr" class="anchor-navigation-ex-anchor" href="#fordecl--expr"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. for(decl : expr)</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;r : vec)
+        r++;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;r : vec)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; r &lt;&lt; <span class="hljs-string">&quot;, &quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// 2, 3, 4, 5, 6, </span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="do-while"><a name="do-while" class="anchor-navigation-ex-anchor" href="#do-while"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. do while</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> count = <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">do</span> {
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;This is iteration &quot;</span> &lt;&lt; count &lt;&lt; <span class="hljs-built_in">endl</span>;
+        count++;
+    } <span class="hljs-keyword">while</span> (count &lt;= <span class="hljs-number">5</span>);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>This is iteration 1
+This is iteration 2
+This is iteration 3
+This is iteration 4
+This is iteration 5
+</code></pre>
                                 
                                 </section>
                             
@@ -705,7 +794,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 interative","level":"1.6.4","depth":2,"next":{"title":"5 jump","level":"1.6.5","depth":2,"path":"pages/Ch05/Ch5-5.md","ref":"pages/Ch05/Ch5-5.md","articles":[]},"previous":{"title":"3 conditional","level":"1.6.3","depth":2,"path":"pages/Ch05/Ch5-3.md","ref":"pages/Ch05/Ch5-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch05/Ch5-4.md","mtime":"2023-10-02T00:32:27.146Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T03:04:43.432Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 interative","level":"1.6.4","depth":2,"next":{"title":"5 jump","level":"1.6.5","depth":2,"path":"pages/Ch05/Ch5-5.md","ref":"pages/Ch05/Ch5-5.md","articles":[]},"previous":{"title":"3 conditional","level":"1.6.3","depth":2,"path":"pages/Ch05/Ch5-3.md","ref":"pages/Ch05/Ch5-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch05/Ch5-4.md","mtime":"2023-10-02T06:04:33.910Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T06:14:01.201Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
