@@ -1,0 +1,1161 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2 pass argument · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Ch6-3.html" />
+    
+    
+    <link rel="prev" href="Ch6-1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Ch01/Ch1.html">
+            
+                <a href="../Ch01/Ch1.html">
+            
+                    
+                    01 Hello World
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Ch01/Ch1-1.html">
+            
+                <a href="../Ch01/Ch1-1.html">
+            
+                    
+                    1 hello world
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Ch02/Ch2.html">
+            
+                <a href="../Ch02/Ch2.html">
+            
+                    
+                    02 Variable and Basic Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Ch02/Ch2-1.html">
+            
+                <a href="../Ch02/Ch2-1.html">
+            
+                    
+                    1 primitive built-in types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Ch02/Ch2-2.html">
+            
+                <a href="../Ch02/Ch2-2.html">
+            
+                    
+                    2 variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Ch02/Ch2-3.html">
+            
+                <a href="../Ch02/Ch2-3.html">
+            
+                    
+                    3 compound types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Ch02/Ch2-4.html">
+            
+                <a href="../Ch02/Ch2-4.html">
+            
+                    
+                    4 const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Ch02/Ch2-5.html">
+            
+                <a href="../Ch02/Ch2-5.html">
+            
+                    
+                    5 types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Ch02/Ch2-6.html">
+            
+                <a href="../Ch02/Ch2-6.html">
+            
+                    
+                    6 data structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Ch03/Ch3.html">
+            
+                <a href="../Ch03/Ch3.html">
+            
+                    
+                    03 Strings, Vectors, and Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Ch03/Ch3-1.html">
+            
+                <a href="../Ch03/Ch3-1.html">
+            
+                    
+                    1 using
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Ch03/Ch3-2.html">
+            
+                <a href="../Ch03/Ch3-2.html">
+            
+                    
+                    2 std::string
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Ch03/Ch3-3.html">
+            
+                <a href="../Ch03/Ch3-3.html">
+            
+                    
+                    3 std::vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Ch03/Ch3-4.html">
+            
+                <a href="../Ch03/Ch3-4.html">
+            
+                    
+                    4 iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Ch03/Ch3-5.html">
+            
+                <a href="../Ch03/Ch3-5.html">
+            
+                    
+                    5 array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Ch03/Ch3-6.html">
+            
+                <a href="../Ch03/Ch3-6.html">
+            
+                    
+                    6 multidimensional array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Ch04/Ch4.html">
+            
+                <a href="../Ch04/Ch4.html">
+            
+                    
+                    04 Expression
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Ch04/Ch4-1.html">
+            
+                <a href="../Ch04/Ch4-1.html">
+            
+                    
+                    1 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Ch04/Ch4-2.html">
+            
+                <a href="../Ch04/Ch4-2.html">
+            
+                    
+                    2 arithmetic operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Ch04/Ch4-3.html">
+            
+                <a href="../Ch04/Ch4-3.html">
+            
+                    
+                    3 logical and relational operators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Ch04/Ch4-4.html">
+            
+                <a href="../Ch04/Ch4-4.html">
+            
+                    
+                    4 assignment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../Ch04/Ch4-5.html">
+            
+                <a href="../Ch04/Ch4-5.html">
+            
+                    
+                    5 increment and decrement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../Ch04/Ch4-6.html">
+            
+                <a href="../Ch04/Ch4-6.html">
+            
+                    
+                    6 member access
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../Ch04/Ch4-7.html">
+            
+                <a href="../Ch04/Ch4-7.html">
+            
+                    
+                    7 conditional
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../Ch04/Ch4-8.html">
+            
+                <a href="../Ch04/Ch4-8.html">
+            
+                    
+                    8 bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../Ch04/Ch4-9.html">
+            
+                <a href="../Ch04/Ch4-9.html">
+            
+                    
+                    9 sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../Ch04/Ch4-10.html">
+            
+                <a href="../Ch04/Ch4-10.html">
+            
+                    
+                    10 comma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../Ch04/Ch4-11.html">
+            
+                <a href="../Ch04/Ch4-11.html">
+            
+                    
+                    11 type conversion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../Ch04/Ch4-12.html">
+            
+                <a href="../Ch04/Ch4-12.html">
+            
+                    
+                    12 precedence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Ch05/Ch5.html">
+            
+                <a href="../Ch05/Ch5.html">
+            
+                    
+                    05 Statements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Ch05/Ch5-1.html">
+            
+                <a href="../Ch05/Ch5-1.html">
+            
+                    
+                    1 simple
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Ch05/Ch5-2.html">
+            
+                <a href="../Ch05/Ch5-2.html">
+            
+                    
+                    2 scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Ch05/Ch5-3.html">
+            
+                <a href="../Ch05/Ch5-3.html">
+            
+                    
+                    3 conditional
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Ch05/Ch5-4.html">
+            
+                <a href="../Ch05/Ch5-4.html">
+            
+                    
+                    4 interative
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Ch05/Ch5-5.html">
+            
+                <a href="../Ch05/Ch5-5.html">
+            
+                    
+                    5 jump
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Ch05/Ch5-6.html">
+            
+                <a href="../Ch05/Ch5-6.html">
+            
+                    
+                    6 try exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Ch6.html">
+            
+                <a href="Ch6.html">
+            
+                    
+                    06 Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Ch6-1.html">
+            
+                <a href="Ch6-1.html">
+            
+                    
+                    1 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.2" data-path="Ch6-2.html">
+            
+                <a href="Ch6-2.html">
+            
+                    
+                    2 pass argument
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="Ch6-3.html">
+            
+                <a href="Ch6-3.html">
+            
+                    
+                    3 return
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Ch6-4.html">
+            
+                <a href="Ch6-4.html">
+            
+                    
+                    4 overloaded
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="Ch6-5.html">
+            
+                <a href="Ch6-5.html">
+            
+                    
+                    5 other features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="Ch6-6.html">
+            
+                <a href="Ch6-6.html">
+            
+                    
+                    6 matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="Ch6-7.html">
+            
+                <a href="Ch6-7.html">
+            
+                    
+                    7 pointer to functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >2 pass argument</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#pass-argument"><b>1. </b>pass argument</a></li><ul><li><span class="title-icon "></span><a href="#pass-by-value-pointer-reference"><b>1.1. </b>pass by value, pointer, reference</a></li><li><span class="title-icon "></span><a href="#const-reference"><b>1.2. </b>const reference</a></li><li><span class="title-icon "></span><a href="#const-argument-reference-and-pointer"><b>1.3. </b>const argument reference and pointer</a></li><li><span class="title-icon "></span><a href="#parameter-int-intn-int"><b>1.4. </b>parameter int[], int[N], int*</a></li><li><span class="title-icon "></span><a href="#pass-array"><b>1.5. </b>pass array</a></li><li><span class="title-icon "></span><a href="#argc-argv"><b>1.6. </b>argc argv</a></li><li><span class="title-icon "></span><a href="#initializerlist"><b>1.7. </b>initializer_list</a></li><li><span class="title-icon "></span><a href="#ellipsis"><b>1.8. </b>ellipsis</a></li></ul></ul></div><a href="#pass-argument" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="pass-argument"><a name="pass-argument" class="anchor-navigation-ex-anchor" href="#pass-argument"><i class="fa fa-link" aria-hidden="true"></i></a>1. pass argument</h1>
+<h2 id="pass-by-value-pointer-reference"><a name="pass-by-value-pointer-reference" class="anchor-navigation-ex-anchor" href="#pass-by-value-pointer-reference"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. pass by value, pointer, reference</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-comment">// Function to increment a variable passed by value</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">incrementByValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>{
+    x++;
+}
+
+<span class="hljs-comment">// Function to increment a variable passed by pointer</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">incrementByPointer</span><span class="hljs-params">(<span class="hljs-keyword">int</span>* x)</span> </span>{
+    (*x)++;
+}
+
+<span class="hljs-comment">// Function to increment a variable passed by reference</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">incrementByReference</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; x)</span> </span>{
+    x++;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> num = <span class="hljs-number">5</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Original value: &quot;</span> &lt;&lt; num &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Pass by value (doesn&apos;t modify the original variable)</span>
+    incrementByValue(num);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;After incrementByValue: &quot;</span> &lt;&lt; num &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Pass by pointer (modifies the original variable using a pointer)</span>
+    incrementByPointer(&amp;num);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;After incrementByPointer: &quot;</span> &lt;&lt; num &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Pass by reference (modifies the original variable directly)</span>
+    incrementByReference(num);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;After incrementByReference: &quot;</span> &lt;&lt; num &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="const-reference"><a name="const-reference" class="anchor-navigation-ex-anchor" href="#const-reference"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. const reference</h2>
+<p>use const reference to prevent change value in function</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-comment">// Function that accepts an integer by const reference</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printValue</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>&amp; value)</span> </span>{
+    <span class="hljs-comment">// Attempting to modify &apos;value&apos; here would result in a compilation error</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Value inside the function: &quot;</span> &lt;&lt; value &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> number = <span class="hljs-number">42</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Original value: &quot;</span> &lt;&lt; number &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Call the function with &apos;number&apos; passed by const reference</span>
+    printValue(number);
+
+    <span class="hljs-comment">// &apos;number&apos; remains unchanged</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Value after the function call: &quot;</span> &lt;&lt; number &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>Original value: 42
+Value inside the function: 42
+Value after the function call: 42
+</code></pre><h2 id="const-argument-reference-and-pointer"><a name="const-argument-reference-and-pointer" class="anchor-navigation-ex-anchor" href="#const-argument-reference-and-pointer"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. const argument reference and pointer</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> i)</span></span>{}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reset</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;i)</span>
+</span>{
+    i = <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reset</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *int_ptr)</span>
+</span>{
+    *int_ptr = <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">// error: redefine fcn</span>
+<span class="hljs-comment">// void fcn(int i){}</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">int</span> i = ci;
+    <span class="hljs-keyword">int</span> * <span class="hljs-keyword">const</span> p = &amp;i;
+    *p = <span class="hljs-number">11</span>;
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *cp = &amp;i;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;cr1 = i;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;cr2 = <span class="hljs-number">33</span>;
+
+    <span class="hljs-comment">// error: &apos;const int*&apos; to &apos;int*&apos; </span>
+    <span class="hljs-comment">// int *int_ptr = &amp;ci;</span>
+
+    <span class="hljs-comment">// error: &apos;int&amp;&apos; to &apos;const int&apos;</span>
+    <span class="hljs-comment">// int &amp;ri1 = cr1;</span>
+
+    <span class="hljs-comment">// error: lvalue type reference to rvalue type</span>
+    <span class="hljs-comment">// int &amp;ri2 = 44;</span>
+
+    reset(&amp;i); <span class="hljs-comment">// call pointer one</span>
+    reset(i); <span class="hljs-comment">// call reference one</span>
+
+    <span class="hljs-comment">// error: can not reference to const</span>
+    <span class="hljs-comment">// error: can not pointer to const</span>
+    <span class="hljs-comment">// reset(ci);</span>
+    <span class="hljs-comment">// reset(&amp;ci);</span>
+
+    <span class="hljs-comment">// error: can not pass literal to non-const reference</span>
+    <span class="hljs-comment">// reset(66);</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="parameter-int-intn-int"><a name="parameter-int-intn-int" class="anchor-navigation-ex-anchor" href="#parameter-int-intn-int"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. parameter int[], int[N], int*</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-comment">// the following three types of declaration are the same</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>*)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>[])</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>])</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a[<span class="hljs-number">10</span>])</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; a[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">5</span>;
+    fcn(&amp;i);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="pass-array"><a name="pass-array" class="anchor-navigation-ex-anchor" href="#pass-array"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. pass array</h2>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;iterator&gt;
+using std::cout;
+using std::endl;
+using std::begin;
+using std::end;
+
+void print(const char *cp)
+{
+    if (cp)
+        while (*cp)
+            cout &lt;&lt; *cp++ &lt;&lt; &apos;_&apos;;
+    cout &lt;&lt; endl;
+}
+
+void print(const int *beg, const int *end)
+{
+    while (beg != end)
+        cout &lt;&lt; *beg++ &lt;&lt; &apos;_&apos;;
+    cout &lt;&lt; endl;
+}
+
+void print(const int ia[], size_t size)
+{
+    for (size_t i = 0; i != size; i++)
+    {
+        cout &lt;&lt; ia[i] &lt;&lt; &quot;_&quot;;
+    }
+    cout &lt;&lt; endl;
+}
+
+void print(int (&amp;ia)[4])
+{
+    for (auto element : ia)
+    {
+        cout &lt;&lt; element &lt;&lt; &quot;_&quot;;    
+    }
+    cout &lt;&lt; endl;
+}
+// can be expanded to multi-dimension array
+void print(int (*matrix)[4], size_t rowSize)
+{
+    for (size_t i = 0; i &lt; rowSize; i++)
+    {
+        for (auto element: matrix[i])
+        {
+            cout &lt;&lt; element &lt;&lt; &quot;_&quot;;
+        }
+    }
+    cout &lt;&lt; endl;
+}
+
+int main() {
+    const char *str = &quot;hello&quot;;
+    print(str);
+
+
+    int arr[4] = {3, 4, 5, 6};
+    print(begin(arr), end(arr));
+
+    print(arr, end(arr) - begin(arr));
+
+    print(arr);
+
+    print(&amp;arr, 1);
+
+    // error: int* and array size mismatching are not allowed
+    // int arr1[3] = {1,2,3};
+    // print(&amp;arr[0]);
+    // print(arr1);
+
+    return 0;
+}
+</code></pre>
+<h2 id="argc-argv"><a name="argc-argv" class="anchor-navigation-ex-anchor" href="#argc-argv"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. argc argv</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Number of command-line arguments: &quot;</span> &lt;&lt; argc &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Print each command-line argument</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; argc; i++) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Argument &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; argv[i] &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>command</p>
+<pre><code class="lang-shell">./myprogram arg1 arg2 arg3
+</code></pre>
+<p>output</p>
+<pre><code>Number of command-line arguments: 4
+Argument 0: ./myprogram
+Argument 1: arg1
+Argument 2: arg2
+Argument 3: arg3
+</code></pre><h2 id="initializerlist"><a name="initializerlist" class="anchor-navigation-ex-anchor" href="#initializerlist"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. initializer_list</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;initializer_list&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">initializer_list</span>;
+
+<span class="hljs-comment">// Function that takes an initializer_list of integers</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-built_in">initializer_list</span>&lt;<span class="hljs-keyword">int</span>&gt; numbers)</span> </span>{
+    <span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num : numbers) {
+        result += num;
+    }
+    <span class="hljs-keyword">return</span> result;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> total = sum({<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>});
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Sum: &quot;</span> &lt;&lt; total &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>Sum: 15
+</code></pre><h2 id="ellipsis"><a name="ellipsis" class="anchor-navigation-ex-anchor" href="#ellipsis"><i class="fa fa-link" aria-hidden="true"></i></a>1.8. ellipsis</h2>
+<p>This should be used only on the type of C lang.<br>Use only when interact with C.</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdarg&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-comment">// Variadic function that calculates the sum of integers</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> count, ...)</span> </span>{
+    va_list args; <span class="hljs-comment">// Declare a va_list to hold the variable arguments</span>
+    va_start(args, count); <span class="hljs-comment">// Initialize the va_list with the arguments after &apos;count&apos;</span>
+
+    <span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; count; i++) {
+        <span class="hljs-keyword">int</span> num = va_arg(args, <span class="hljs-keyword">int</span>); <span class="hljs-comment">// Extract each argument from va_list</span>
+        result += num;
+    }
+
+    va_end(args); <span class="hljs-comment">// Cleanup the va_list</span>
+
+    <span class="hljs-keyword">return</span> result;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> total = sum(<span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Sum: &quot;</span> &lt;&lt; total &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>Sum: 15
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Ch6-1.html" class="navigation navigation-prev " aria-label="Previous page: 1 basic">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Ch6-3.html" class="navigation navigation-next " aria-label="Next page: 3 return">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2 pass argument","level":"1.7.2","depth":2,"next":{"title":"3 return","level":"1.7.3","depth":2,"path":"pages/Ch06/Ch6-3.md","ref":"pages/Ch06/Ch6-3.md","articles":[]},"previous":{"title":"1 basic","level":"1.7.1","depth":2,"path":"pages/Ch06/Ch6-1.md","ref":"pages/Ch06/Ch6-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-2.md","mtime":"2023-10-02T09:02:45.832Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T09:02:59.118Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-google-ads/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
