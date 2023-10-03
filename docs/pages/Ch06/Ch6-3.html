@@ -767,10 +767,161 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#return"><b>1. </b>return</a></li><ul><li><span class="title-icon "></span><a href="#empty-statement"><b>1.1. </b>empty statement</a></li></ul></ul></div><a href="#return" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="return"><a name="return" class="anchor-navigation-ex-anchor" href="#return"><i class="fa fa-link" aria-hidden="true"></i></a>1. return</h1>
-<h2 id="empty-statement"><a name="empty-statement" class="anchor-navigation-ex-anchor" href="#empty-statement"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. empty statement</h2>
-<pre><code class="lang-cpp">
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#return"><b>1. </b>return</a></li><ul><li><span class="title-icon "></span><a href="#return-void"><b>1.1. </b>return void</a></li><li><span class="title-icon "></span><a href="#error-return-referece-to-local"><b>1.2. </b>error: return referece to local</a></li><li><span class="title-icon "></span><a href="#return-reference-is-lvalue"><b>1.3. </b>return reference is lvalue</a></li><li><span class="title-icon "></span><a href="#return-initializerlist"><b>1.4. </b>return initializer_list</a></li><li><span class="title-icon "></span><a href="#main-return"><b>1.5. </b>main return</a></li><li><span class="title-icon "></span><a href="#recursive"><b>1.6. </b>recursive</a></li><li><span class="title-icon "></span><a href="#return-pointer-to-array"><b>1.7. </b>return pointer to array</a></li></ul></ul></div><a href="#return" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="return"><a name="return" class="anchor-navigation-ex-anchor" href="#return"><i class="fa fa-link" aria-hidden="true"></i></a>1. return</h1>
+<h2 id="return-void"><a name="return-void" class="anchor-navigation-ex-anchor" href="#return-void"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. return void</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">assign3</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;v)</span>
+</span>{
+    v = <span class="hljs-number">3</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
+    assign3(i);
+}
+</code></pre>
+<h2 id="error-return-referece-to-local"><a name="error-return-referece-to-local" class="anchor-navigation-ex-anchor" href="#error-return-referece-to-local"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. error: return referece to local</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;<span class="hljs-title">manip</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;input)</span>
+</span>{
+    <span class="hljs-built_in">string</span> ret = <span class="hljs-string">&quot;a&quot;</span>;
+
+    <span class="hljs-comment">// error: return reference to local variable</span>
+    <span class="hljs-comment">// return ret;</span>
+
+    <span class="hljs-comment">// error: return reference to local</span>
+    <span class="hljs-comment">// return &quot;empty&quot;; </span>
+
+    <span class="hljs-keyword">return</span> input;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+
+    <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;666&quot;</span>;
+    str = manip(str);
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; str;
+}
+</code></pre>
+<h2 id="return-reference-is-lvalue"><a name="return-reference-is-lvalue" class="anchor-navigation-ex-anchor" href="#return-reference-is-lvalue"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. return reference is lvalue</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">char</span> &amp;<span class="hljs-title">firstChar</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *input)</span>
+</span>{
+    <span class="hljs-keyword">return</span> input[<span class="hljs-number">0</span>];
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">char</span> arr[<span class="hljs-number">20</span>] = <span class="hljs-string">&quot;hello&quot;</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; arr &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    firstChar(arr) = <span class="hljs-string">&apos;H&apos;</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; arr &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h2 id="return-initializerlist"><a name="return-initializerlist" class="anchor-navigation-ex-anchor" href="#return-initializerlist"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. return initializer_list</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; get1To5()
+{
+    <span class="hljs-keyword">return</span> {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec{get1To5()};
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;element : vec)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; element &lt;&lt; <span class="hljs-string">&quot;_&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// 1_2_3_4_5_</span>
+}
+</code></pre>
+<h2 id="main-return"><a name="main-return" class="anchor-navigation-ex-anchor" href="#main-return"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. main return</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// EXIT_FAILURE and EXIT_SUCCESS are defined in &lt;cstdlib&gt;</span>
+
+    <span class="hljs-comment">// if failed</span>
+    <span class="hljs-keyword">return</span> EXIT_FAILURE;
+
+    <span class="hljs-comment">// if success</span>
+    <span class="hljs-comment">//return EXIT_SUCCESS;</span>
+}
+</code></pre>
+<h2 id="recursive"><a name="recursive" class="anchor-navigation-ex-anchor" href="#recursive"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. recursive</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">factorial</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (value &gt; <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-function">value * <span class="hljs-title">factorial</span><span class="hljs-params">(value - <span class="hljs-number">1</span>)</span></span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; factorial(<span class="hljs-number">5</span>) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 120</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="return-pointer-to-array"><a name="return-pointer-to-array" class="anchor-navigation-ex-anchor" href="#return-pointer-to-array"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. return pointer to array</h2>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+typedef int TypeIntArr5[5];
+using UseIntArr5 = int[5];
+
+int arr[5] = {1, 2, 3, 4, 5};
+
+// the following function return pointer to array
+TypeIntArr5 *getArrayA(){return &amp;arr;}
+UseIntArr5 *getArrayB(){return &amp;arr;}
+int (*getArrayC())[5]{return &amp;arr;}
+auto getArrayD()-&gt;int(*)[5]{return &amp;arr;}
+decltype(arr) *getArrayE(){return &amp;arr;}
+
+int main()
+{
+    int (*arrPtrA)[5] = getArrayA();
+    int (*arrPtrB)[5] = getArrayB();
+    int (*arrPtrC)[5] = getArrayC();
+    int (*arrPtrD)[5] = getArrayD();
+    int (*arrPtrE)[5] = getArrayE();
+
+    // the following are the same
+    cout &lt;&lt; *arrPtrA &lt;&lt; endl;
+    cout &lt;&lt; *arrPtrB &lt;&lt; endl;
+    cout &lt;&lt; *arrPtrC &lt;&lt; endl;
+    cout &lt;&lt; *arrPtrD &lt;&lt; endl;
+    cout &lt;&lt; *arrPtrE &lt;&lt; endl;
+    cout &lt;&lt; &amp;arr[0] &lt;&lt; endl;
+    return 0;
+}
 </code></pre>
 
                                 
@@ -815,7 +966,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3 return","level":"1.7.3","depth":2,"next":{"title":"4 overloaded","level":"1.7.4","depth":2,"path":"pages/Ch06/Ch6-4.md","ref":"pages/Ch06/Ch6-4.md","articles":[]},"previous":{"title":"2 pass argument","level":"1.7.2","depth":2,"path":"pages/Ch06/Ch6-2.md","ref":"pages/Ch06/Ch6-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-3.md","mtime":"2023-10-02T06:39:19.144Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T09:02:59.118Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3 return","level":"1.7.3","depth":2,"next":{"title":"4 overloaded","level":"1.7.4","depth":2,"path":"pages/Ch06/Ch6-4.md","ref":"pages/Ch06/Ch6-4.md","articles":[]},"previous":{"title":"2 pass argument","level":"1.7.2","depth":2,"path":"pages/Ch06/Ch6-2.md","ref":"pages/Ch06/Ch6-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-3.md","mtime":"2023-10-03T03:33:11.333Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-03T03:40:18.568Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

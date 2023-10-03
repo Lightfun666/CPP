@@ -767,10 +767,85 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#overloaded"><b>1. </b>overloaded</a></li><ul><li><span class="title-icon "></span><a href="#empty-statement"><b>1.1. </b>empty statement</a></li></ul></ul></div><a href="#overloaded" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="overloaded"><a name="overloaded" class="anchor-navigation-ex-anchor" href="#overloaded"><i class="fa fa-link" aria-hidden="true"></i></a>1. overloaded</h1>
-<h2 id="empty-statement"><a name="empty-statement" class="anchor-navigation-ex-anchor" href="#empty-statement"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. empty statement</h2>
-<pre><code class="lang-cpp">
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#overloaded"><b>1. </b>overloaded</a></li><ul><li><span class="title-icon "></span><a href="#overloaded-and-const"><b>1.1. </b>overloaded and const</a></li><li><span class="title-icon "></span><a href="#constcast-and-overloaded"><b>1.2. </b>const_cast&lt;&gt; and overloaded</a></li><li><span class="title-icon "></span><a href="#scope-and-overloaded"><b>1.3. </b>scope and overloaded</a></li></ul></ul></div><a href="#overloaded" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="overloaded"><a name="overloaded" class="anchor-navigation-ex-anchor" href="#overloaded"><i class="fa fa-link" aria-hidden="true"></i></a>1. overloaded</h1>
+<h2 id="overloaded-and-const"><a name="overloaded-and-const" class="anchor-navigation-ex-anchor" href="#overloaded-and-const"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. overloaded and const</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> i)</span> </span>{<span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>;}
+
+<span class="hljs-comment">// error: conflict with &apos;int add(const int i)&apos;</span>
+<span class="hljs-comment">// int add(int i) {return i + 2;}</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span>* <span class="hljs-keyword">const</span> ptr)</span> </span>{<span class="hljs-keyword">return</span> *ptr + <span class="hljs-number">1</span>;}
+
+<span class="hljs-comment">// error: conflict with &apos;int add(int* const ptr)&apos; </span>
+<span class="hljs-comment">// int add(int *ptr){return *ptr + 2;}</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;i)</span></span>{<span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span>;}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i)</span> </span>{<span class="hljs-keyword">return</span> i - <span class="hljs-number">2</span>;}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ptr)</span></span>{<span class="hljs-keyword">return</span> *ptr - <span class="hljs-number">3</span>;}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *ptr)</span> </span>{<span class="hljs-keyword">return</span> *ptr - <span class="hljs-number">4</span>;}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// top level const can be ignore, and causes conflict</span>
+
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; add(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 3</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; add(&amp;i) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 11</span>
+
+    <span class="hljs-comment">// bottom level const is not ignored</span>
+    i = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> c = <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(i) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 9, (10 - 1)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(c) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 8, (10 - 2)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(&amp;i) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 7, (10 - 3)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(&amp;c) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 6, (10 - 4)</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="constcast-and-overloaded"><a name="constcast-and-overloaded" class="anchor-navigation-ex-anchor" href="#constcast-and-overloaded"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. const_cast&lt;&gt; and overloaded</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;i)</span> </span>{<span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span>;}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i)</span> </span>{<span class="hljs-keyword">return</span> i - <span class="hljs-number">2</span>;}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> c = <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(i) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 9, (10 - 1)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(c) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 8, (10 - 2)</span>
+
+    <span class="hljs-comment">// call const version of minus</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(<span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>&amp;&gt;(i));  <span class="hljs-comment">// 8, (10 - 2)</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="scope-and-overloaded"><a name="scope-and-overloaded" class="anchor-navigation-ex-anchor" href="#scope-and-overloaded"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. scope and overloaded</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;i)</span></span>{<span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span>;}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d)</span> </span>{<span class="hljs-keyword">return</span> d - <span class="hljs-number">3</span>;}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// because &apos;int minus(double)&apos; is declared</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d)</span></span>;
+
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; minus(i) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 7</span>
+    <span class="hljs-comment">// &apos;int minue(int &amp;i)&apos; is masked</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
 
                                 
@@ -815,7 +890,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 overloaded","level":"1.7.4","depth":2,"next":{"title":"5 other features","level":"1.7.5","depth":2,"path":"pages/Ch06/Ch6-5.md","ref":"pages/Ch06/Ch6-5.md","articles":[]},"previous":{"title":"3 return","level":"1.7.3","depth":2,"path":"pages/Ch06/Ch6-3.md","ref":"pages/Ch06/Ch6-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-4.md","mtime":"2023-10-02T06:39:27.848Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-02T09:02:59.118Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 overloaded","level":"1.7.4","depth":2,"next":{"title":"5 other features","level":"1.7.5","depth":2,"path":"pages/Ch06/Ch6-5.md","ref":"pages/Ch06/Ch6-5.md","articles":[]},"previous":{"title":"3 return","level":"1.7.3","depth":2,"path":"pages/Ch06/Ch6-3.md","ref":"pages/Ch06/Ch6-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-4.md","mtime":"2023-10-03T03:38:35.089Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-03T03:40:18.568Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
