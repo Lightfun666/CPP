@@ -767,12 +767,179 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#other-features"><b>1. </b>other features</a></li><ul><li><span class="title-icon "></span><a href="#empty-statement"><b>1.1. </b>empty statement</a></li></ul></ul></div><a href="#other-features" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="other-features"><a name="other-features" class="anchor-navigation-ex-anchor" href="#other-features"><i class="fa fa-link" aria-hidden="true"></i></a>1. other features</h1>
-<h2 id="empty-statement"><a name="empty-statement" class="anchor-navigation-ex-anchor" href="#empty-statement"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. empty statement</h2>
-<pre><code class="lang-cpp">
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#other-features"><b>1. </b>other features</a></li><ul><li><span class="title-icon "></span><a href="#default-argument"><b>1.1. </b>default argument</a></li><li><span class="title-icon "></span><a href="#default-value-evaluation-time"><b>1.2. </b>default value evaluation time</a></li><li><span class="title-icon "></span><a href="#constexpr"><b>1.3. </b>constexpr</a></li><li><span class="title-icon "></span><a href="#debug-tool"><b>1.4. </b>debug tool</a></li><ul><li><span class="title-icon "></span><a href="#assert"><b>1.4.1. </b>assert</a></li><li><span class="title-icon "></span><a href="#ndebug"><b>1.4.2. </b>NDEBUG</a></li><li><span class="title-icon "></span><a href="#func"><b>1.4.3. </b>__func__</a></li><li><span class="title-icon "></span><a href="#file"><b>1.4.4. </b>__FILE__</a></li><li><span class="title-icon "></span><a href="#line"><b>1.4.5. </b>__LINE__</a></li><li><span class="title-icon "></span><a href="#time--date"><b>1.4.6. </b>__TIME__  __DATE__</a></li></ul></ul></ul></div><a href="#other-features" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="other-features"><a name="other-features" class="anchor-navigation-ex-anchor" href="#other-features"><i class="fa fa-link" aria-hidden="true"></i></a>1. other features</h1>
+<h2 id="default-argument"><a name="default-argument" class="anchor-navigation-ex-anchor" href="#default-argument"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. default argument</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
+<span class="hljs-comment">// multiple function declarations are legal</span>
+<span class="hljs-comment">// default value in declaration should be add from tail</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span> , <span class="hljs-keyword">char</span> = <span class="hljs-string">&apos;c&apos;</span>)</span></span>; <span class="hljs-comment">// add default value</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span> = <span class="hljs-number">4</span>, <span class="hljs-keyword">char</span>)</span></span>; <span class="hljs-comment">// add default value</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span> = <span class="hljs-number">2</span>, <span class="hljs-keyword">int</span>, <span class="hljs-keyword">char</span>)</span></span>; <span class="hljs-comment">// add default value</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">char</span> c)</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; b &lt;&lt; c &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    show(); <span class="hljs-comment">// use the default value from declarations</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+<h2 id="default-value-evaluation-time"><a name="default-value-evaluation-time" class="anchor-navigation-ex-anchor" href="#default-value-evaluation-time"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. default value evaluation time</h2>
+<p>every time the function called, the default value is evaluated.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
 
+int count = 1;
+
+int getCount()
+{
+    return count;    
+}
+
+int show(int = getCount());
+
+int show(int a)
+{
+    cout &lt;&lt; a &lt;&lt; endl;
+    return 0;
+}
+
+int main()
+{
+    show(); // 1
+    ::count++;
+    show(); // 2
+    return 0;
+}
+</code></pre>
+<h2 id="constexpr"><a name="constexpr" class="anchor-navigation-ex-anchor" href="#constexpr"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. constexpr</h2>
+<p>constexpr function has 2 limits:  </p>
+<ol>
+<li>return type should be literal type  </li>
+<li>function body should contain only one return statement  </li>
+</ol>
+<p>Result is const only if argument is also const.</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">constexpr</span> size_t <span class="hljs-title">getSize</span><span class="hljs-params">(size_t s)</span> </span>{<span class="hljs-keyword">return</span> s + <span class="hljs-number">1</span>;}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">int</span> arr1[getSize(<span class="hljs-number">4</span>)];
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-keyword">sizeof</span>(arr1) / (<span class="hljs-keyword">sizeof</span>(arr1[<span class="hljs-number">0</span>])) &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// warning: ISO C++ forbids variable length array &apos;arr2&apos;</span>
+    <span class="hljs-comment">// argument is variable, return value is not const</span>
+    <span class="hljs-keyword">int</span> arr2[getSize(i)];
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-keyword">sizeof</span>(arr2) / (<span class="hljs-keyword">sizeof</span>(arr2[<span class="hljs-number">0</span>])) &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="debug-tool"><a name="debug-tool" class="anchor-navigation-ex-anchor" href="#debug-tool"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. debug tool</h2>
+<h3 id="assert"><a name="assert" class="anchor-navigation-ex-anchor" href="#assert"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.1. assert</h3>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cassert&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    assert(<span class="hljs-number">3</span> &lt; <span class="hljs-number">5</span>);
+
+    <span class="hljs-comment">// Assertion `3 &gt; 5&apos; failed.</span>
+    <span class="hljs-comment">// Abort</span>
+    assert(<span class="hljs-number">3</span> &gt; <span class="hljs-number">5</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3 id="ndebug"><a name="ndebug" class="anchor-navigation-ex-anchor" href="#ndebug"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.2. NDEBUG</h3>
+<p>Use NDEBUG in compile command, assert() would be ignored.</p>
+<pre><code>$ CC -D NDEBUG main.cpp
+</code></pre><h3 id="func"><a name="func" class="anchor-navigation-ex-anchor" href="#func"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.3. __func__</h3>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span>
+</span>{
+   <span class="hljs-built_in">cout</span> &lt;&lt; __func__ &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// DoSomething</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    doSomething();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>doSomething
+</code></pre><h3 id="file"><a name="file" class="anchor-navigation-ex-anchor" href="#file"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.4. __FILE__</h3>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; __FILE__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>main.cpp
+</code></pre><h3 id="line"><a name="line" class="anchor-navigation-ex-anchor" href="#line"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5. __LINE__</h3>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span>
+</span>{
+   <span class="hljs-built_in">cout</span> &lt;&lt; __LINE__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; __LINE__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; __LINE__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; __LINE__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+    doSomething();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>12
+13
+14
+7
+</code></pre><h3 id="time--date"><a name="time--date" class="anchor-navigation-ex-anchor" href="#time--date"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.6. __TIME__  __DATE__</h3>
+<p>print the compile time</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; __DATE__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; __TIME__ &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output (sample, depends on your compile time)</p>
+<pre><code>Oct  4 2023
+01:25:28
+</code></pre>
                                 
                                 </section>
                             
@@ -815,7 +982,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5 other features","level":"1.7.5","depth":2,"next":{"title":"6 matching","level":"1.7.6","depth":2,"path":"pages/Ch06/Ch6-6.md","ref":"pages/Ch06/Ch6-6.md","articles":[]},"previous":{"title":"4 overloaded","level":"1.7.4","depth":2,"path":"pages/Ch06/Ch6-4.md","ref":"pages/Ch06/Ch6-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-5.md","mtime":"2023-10-02T06:39:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-03T03:40:18.568Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5 other features","level":"1.7.5","depth":2,"next":{"title":"6 matching","level":"1.7.6","depth":2,"path":"pages/Ch06/Ch6-6.md","ref":"pages/Ch06/Ch6-6.md","articles":[]},"previous":{"title":"4 overloaded","level":"1.7.4","depth":2,"path":"pages/Ch06/Ch6-4.md","ref":"pages/Ch06/Ch6-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch06/Ch6-5.md","mtime":"2023-10-04T01:28:24.965Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-04T02:52:41.721Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
