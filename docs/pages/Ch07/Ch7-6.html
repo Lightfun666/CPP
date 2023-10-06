@@ -862,18 +862,93 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#static-class-member"><b>1. </b>static class member</a></li></ul></div><a href="#static-class-member" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="static-class-member"><a name="static-class-member" class="anchor-navigation-ex-anchor" href="#static-class-member"><i class="fa fa-link" aria-hidden="true"></i></a>1. static class member</h1>
-<p>hello.cpp </p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#static-class-member"><b>1. </b>static class member</a></li><ul><li><span class="title-icon "></span><a href="#static-private-static"><b>1.1. </b>static, private static</a></li></ul><li><span class="title-icon "></span><a href="#include-"><b>2. </b>include </a></li><li><span class="title-icon "></span><a href="#include-_1"><b>3. </b>include </a></li><ul><li><span class="title-icon "></span><a href="#static-member-as-default-argument"><b>3.1. </b>static member as default argument</a></li></ul></ul></div><a href="#static-class-member" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="static-class-member"><a name="static-class-member" class="anchor-navigation-ex-anchor" href="#static-class-member"><i class="fa fa-link" aria-hidden="true"></i></a>1. static class member</h1>
+<h2 id="static-private-static"><a name="static-private-static" class="anchor-navigation-ex-anchor" href="#static-private-static"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. static, private static</h2>
+<ol>
+<li>private static method can be used out of class the 
+initialize static member</li>
+<li>static member can be access through object or class</li>
+<li>static member should be initialized out of class
+```cpp<h1 id="include-"><a name="include-" class="anchor-navigation-ex-anchor" href="#include-"><i class="fa fa-link" aria-hidden="true"></i></a>2. include </h1>
+<h1 id="include-_1"><a name="include-_1" class="anchor-navigation-ex-anchor" href="#include-_1"><i class="fa fa-link" aria-hidden="true"></i></a>3. include </h1>
+using std::cout;
+using std::endl;
+using std::string;</li>
+</ol>
+<p>class Account{
+private:
+    static double interestRate;
+    string owner;
+    double amount;
+    static double defaultRate() { return 2.5; }
+public:
+    static double rate();
+};</p>
+<p>// must initialize static member out of class
+// private static member can be used here(out of class)
+double Account::interestRate = Account::defaultRate();</p>
+<p>double Account::rate() { return interestRate; }</p>
+<p>int main()
+{
+    cout &lt;&lt; Account::rate() &lt;&lt; endl; // 2.5
+    Account acc;
+    cout &lt;&lt; acc.rate() &lt;&lt; endl; // 2.5
+    return 0;
+}</p>
+<pre><code>
+## constexpr static member
+```cpp
+#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+class Account{
+private:
+    // constexpr member can be initialized in class
+    static constexpr double interestRate = 2.5;
+public:
+    static double rate() { return interestRate; }
+};
+
+// had better define out of class
+constexpr double Account::interestRate;
+
+int main()
+{
+    cout &lt;&lt; Account::rate() &lt;&lt; endl; // 2.5
+    return 0;
+}
+</code></pre><h2 id="static-member-as-default-argument"><a name="static-member-as-default-argument" class="anchor-navigation-ex-anchor" href="#static-member-as-default-argument"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. static member as default argument</h2>
 <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+<span class="hljs-keyword">double</span> i = <span class="hljs-number">6</span>;
+
+<span class="hljs-keyword">class</span> Account{
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">double</span> amount;
+<span class="hljs-keyword">public</span>:
+    Account(<span class="hljs-keyword">double</span> amount_):amount(amount_) {}
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> rate;
+    <span class="hljs-comment">// static member can be used as default argument</span>
+    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">evaluateInterest</span><span class="hljs-params">(<span class="hljs-keyword">double</span> r = rate)</span> </span>{ <span class="hljs-keyword">return</span> r * amount;}
+};
+
+<span class="hljs-keyword">double</span> Account::rate = <span class="hljs-number">0.125</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-function">Account <span class="hljs-title">acc</span><span class="hljs-params">(<span class="hljs-number">100</span>)</span></span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; acc.evaluateInterest() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 12.5</span>
+
+    Account::rate = <span class="hljs-number">0.25</span>; <span class="hljs-comment">// change the default argument</span>
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; acc.evaluateInterest() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 25</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<pre><code>hello world
-</code></pre>
+
                                 
                                 </section>
                             
@@ -912,7 +987,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6 static class member","level":"1.8.6","depth":2,"previous":{"title":"5 constructor","level":"1.8.5","depth":2,"path":"pages/Ch07/Ch7-5.md","ref":"pages/Ch07/Ch7-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch07/Ch7-6.md","mtime":"2023-10-04T05:24:19.945Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-05T09:12:12.293Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6 static class member","level":"1.8.6","depth":2,"previous":{"title":"5 constructor","level":"1.8.5","depth":2,"path":"pages/Ch07/Ch7-5.md","ref":"pages/Ch07/Ch7-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch07/Ch7-6.md","mtime":"2023-10-06T01:08:10.109Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-06T01:08:56.694Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
