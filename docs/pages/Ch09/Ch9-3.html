@@ -1019,18 +1019,274 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#sequential-container-ops"><b>1. </b>sequential container ops</a></li></ul></div><a href="#sequential-container-ops" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="sequential-container-ops"><a name="sequential-container-ops" class="anchor-navigation-ex-anchor" href="#sequential-container-ops"><i class="fa fa-link" aria-hidden="true"></i></a>1. sequential container ops</h1>
-<p>hello.cpp </p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#sequential-container-ops"><b>1. </b>sequential container ops</a></li><ul><li><span class="title-icon "></span><a href="#add-element"><b>1.1. </b>add element</a></li><ul><li><span class="title-icon "></span><a href="#emplace"><b>1.1.1. </b>emplace</a></li></ul><li><span class="title-icon "></span><a href="#access-element"><b>1.2. </b>access element</a></li><li><span class="title-icon "></span><a href="#remove-element"><b>1.3. </b>remove element</a></li><li><span class="title-icon "></span><a href="#forwardlist-only-operation"><b>1.4. </b>forward_list-only operation</a></li><li><span class="title-icon "></span><a href="#adjust-size"><b>1.5. </b>adjust size</a></li><li><span class="title-icon "></span><a href="#operations-invalidate-iterator"><b>1.6. </b>operations invalidate iterator</a></li></ul></ul></div><a href="#sequential-container-ops" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="sequential-container-ops"><a name="sequential-container-ops" class="anchor-navigation-ex-anchor" href="#sequential-container-ops"><i class="fa fa-link" aria-hidden="true"></i></a>1. sequential container ops</h1>
+<h2 id="add-element"><a name="add-element" class="anchor-navigation-ex-anchor" href="#add-element"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. add element</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">list</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showVector</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; vec)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; l)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// push_back(element), push_front(element)</span>
+    <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    list_int0.push_back(<span class="hljs-number">66</span>);
+    list_int0.push_front(<span class="hljs-number">9</span>);
+    showList(list_int0);
+
+    <span class="hljs-comment">// insert(iterator, element)</span>
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    list_int0.insert(list_int0.begin(), <span class="hljs-number">8</span>);
+    showList(list_int0);
+
+    <span class="hljs-comment">// insert(iterator_to, iterator_from_begin, iterator_from_end)</span>
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; list_int1 = {<span class="hljs-number">88</span> ,<span class="hljs-number">99</span>};
+    list_int0.insert(list_int0.begin(), list_int1.begin(), list_int1.end());    
+    showList(list_int0);
+
+    <span class="hljs-comment">// insert(iterator_to, {...})</span>
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    list_int0.insert(list_int0.begin(), {<span class="hljs-number">666</span>, <span class="hljs-number">777</span>});
+    showList(list_int0);
+
+    <span class="hljs-comment">// insert(iterator, element)</span>
+    <span class="hljs-comment">// interator &apos;+ 1&apos; automatically </span>
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    <span class="hljs-keyword">auto</span> iter = list_int0.begin();
+    list_int0.insert(iter, <span class="hljs-number">555</span>);
+    list_int0.insert(iter, <span class="hljs-number">666</span>);
+    showList(list_int0);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showVector</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; vec)</span>
+</span>{
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i : vec)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; l)</span>
+</span>{
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i : l)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h3 id="emplace"><a name="emplace" class="anchor-navigation-ex-anchor" href="#emplace"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. emplace</h3>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">list</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-keyword">class</span> Point
+{
+    <span class="hljs-keyword">int</span> x;
+<span class="hljs-keyword">public</span>:
+    Point(<span class="hljs-keyword">int</span> x_ = <span class="hljs-number">3</span>):x(x_){}
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getX</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> x; }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span>&lt;Point&gt; &amp;l)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">list</span>&lt;Point&gt; listp;
+    listp.emplace_back(<span class="hljs-number">6</span>); <span class="hljs-comment">// call Pointer(6) to create element</span>
+    listp.emplace_front(); <span class="hljs-comment">// call default constructor </span>
+    showList(listp); <span class="hljs-comment">// 3-6-</span>
+
+    <span class="hljs-comment">// call Pointer(5) and insert element next to first element</span>
+    listp.emplace(++listp.begin(), <span class="hljs-number">5</span>);
+    showList(listp); <span class="hljs-comment">// 3-5-6-</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span>&lt;Point&gt; &amp;l)</span>
+</span>{
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> Point &amp;p : l)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; p.getX() &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h2 id="access-element"><a name="access-element" class="anchor-navigation-ex-anchor" href="#access-element"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. access element</h2>
+<p>use fron(), back(), [] and at() to get reference to element.</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdexcept&gt;</span>      // std::out_of_range</span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::out_of_range;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+
+    <span class="hljs-keyword">auto</span> &amp;head = vec.front();
+    <span class="hljs-keyword">auto</span> &amp;tail = vec.back();
+    <span class="hljs-comment">// forward_list does not has back()</span>
+
+    head = <span class="hljs-number">10</span>;
+    tail = <span class="hljs-number">50</span>;
+
+    vec[<span class="hljs-number">1</span>] = <span class="hljs-number">20</span>;
+    vec.at(<span class="hljs-number">2</span>) = <span class="hljs-number">30</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i : vec)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// 10-20-30-4-50-</span>
+
+    <span class="hljs-keyword">try</span> {
+        vec.at(<span class="hljs-number">5</span>) = <span class="hljs-number">100</span>;      <span class="hljs-comment">// vector::at throws an out-of-range</span>
+    }
+    <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">const</span> out_of_range&amp; oor) {
+        <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Out of Range error: \n\t&quot;</span> &lt;&lt; oor.what() &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+    }
+    <span class="hljs-comment">//Out of Range error: </span>
+    <span class="hljs-comment">//    vector::_M_range_check: __n (which is 5) &gt;= this-&gt;size() (which is 5)</span>
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<pre><code>hello world
+<h2 id="remove-element"><a name="remove-element" class="anchor-navigation-ex-anchor" href="#remove-element"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. remove element</h2>
+<p>use pop_front(), pop_back(), erase() and clear()</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">list</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;list_int)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+
+    list_int0.pop_front();
+    showList(list_int0); <span class="hljs-comment">// 2-3-4-5-</span>
+
+    list_int0.pop_back();
+    showList(list_int0); <span class="hljs-comment">// 2-3-4-</span>
+
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    list_int0.erase(++list_int0.begin());
+    showList(list_int0); <span class="hljs-comment">// 1-3-4-5-</span>
+
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    list_int0.erase(++list_int0.begin(), list_int0.end());
+    showList(list_int0); <span class="hljs-comment">// 1-</span>
+
+    list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    list_int0.clear();
+    showList(list_int0); <span class="hljs-comment">// (empty)</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;list_int)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i : list_int)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
 </code></pre>
+<h2 id="forwardlist-only-operation"><a name="forwardlist-only-operation" class="anchor-navigation-ex-anchor" href="#forwardlist-only-operation"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. forward_list-only operation</h2>
+<p>before_begin(), cbefore_begin(), insert_after(), emplace_after(), erase_after()</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;forward_list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::forward_list;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> forward_list&lt;<span class="hljs-keyword">int</span>&gt; &amp;list_int)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    forward_list&lt;<span class="hljs-keyword">int</span>&gt; list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    forward_list&lt;<span class="hljs-keyword">int</span>&gt;::const_iterator iter = list_int0.cbefore_begin();
+
+    list_int0.insert_after(iter, <span class="hljs-number">0</span>);
+    showList(list_int0); <span class="hljs-comment">// 0-1-2-3-4-5-</span>
+
+    iter = list_int0.cbefore_begin();
+    iter++;
+    iter++;
+    list_int0.erase_after(iter);
+    showList(list_int0); <span class="hljs-comment">// 0-1-3-4-5-</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> forward_list&lt;<span class="hljs-keyword">int</span>&gt; &amp;list_int)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i : list_int)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h2 id="adjust-size"><a name="adjust-size" class="anchor-navigation-ex-anchor" href="#adjust-size"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. adjust size</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;forward_list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::forward_list;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> forward_list&lt;<span class="hljs-keyword">int</span>&gt; &amp;list_int)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    forward_list&lt;<span class="hljs-keyword">int</span>&gt; list_int0 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+
+    list_int0.resize(<span class="hljs-number">10</span>, <span class="hljs-number">77</span>);
+    showList(list_int0); <span class="hljs-comment">// 1-2-3-4-5-77-77-77-77-77-</span>
+
+    list_int0.resize(<span class="hljs-number">4</span>, <span class="hljs-number">66</span>);
+    showList(list_int0); <span class="hljs-comment">// 1-2-3-4-</span>
+
+    list_int0.resize(<span class="hljs-number">2</span>);
+    showList(list_int0); <span class="hljs-comment">// 1-2-</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-keyword">const</span> forward_list&lt;<span class="hljs-keyword">int</span>&gt; &amp;list_int)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;i : list_int)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;-&quot;</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h2 id="operations-invalidate-iterator"><a name="operations-invalidate-iterator" class="anchor-navigation-ex-anchor" href="#operations-invalidate-iterator"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. operations invalidate iterator</h2>
+<p>(to be done)</p>
+
                                 
                                 </section>
                             
@@ -1073,7 +1329,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3 sequential container ops","level":"1.10.3","depth":2,"next":{"title":"4 how a vector grows","level":"1.10.4","depth":2,"path":"pages/Ch09/Ch9-4.md","ref":"pages/Ch09/Ch9-4.md","articles":[]},"previous":{"title":"2 container library overview","level":"1.10.2","depth":2,"path":"pages/Ch09/Ch9-2.md","ref":"pages/Ch09/Ch9-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch09/Ch9-3.md","mtime":"2023-10-06T07:28:08.391Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-13T01:31:53.425Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3 sequential container ops","level":"1.10.3","depth":2,"next":{"title":"4 how a vector grows","level":"1.10.4","depth":2,"path":"pages/Ch09/Ch9-4.md","ref":"pages/Ch09/Ch9-4.md","articles":[]},"previous":{"title":"2 container library overview","level":"1.10.2","depth":2,"path":"pages/Ch09/Ch9-2.md","ref":"pages/Ch09/Ch9-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch09/Ch9-3.md","mtime":"2023-10-13T08:09:39.143Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-13T08:47:14.457Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

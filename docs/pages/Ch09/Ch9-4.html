@@ -1020,17 +1020,34 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#how-a-vector-grows"><b>1. </b>how a vector grows</a></li></ul></div><a href="#how-a-vector-grows" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="how-a-vector-grows"><a name="how-a-vector-grows" class="anchor-navigation-ex-anchor" href="#how-a-vector-grows"><i class="fa fa-link" aria-hidden="true"></i></a>1. how a vector grows</h1>
-<p>hello.cpp </p>
+<p>size() get container&apos;s number of element.<br>capacity() get the number of space container have.<br>shrink_to_fit() release the space without element.<br>reserve() gain the space for the container.  </p>
 <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;size: &quot;</span>&lt;&lt; vec.size() &lt;&lt; <span class="hljs-string">&quot;, capacity:&quot;</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// size: 5, capacity:5</span>
+
+    vec.push_back(<span class="hljs-number">6</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;size: &quot;</span>&lt;&lt; vec.size() &lt;&lt; <span class="hljs-string">&quot;, capacity:&quot;</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// size: 6, capacity:10</span>
+
+    vec.shrink_to_fit();
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;size: &quot;</span>&lt;&lt; vec.size() &lt;&lt; <span class="hljs-string">&quot;, capacity:&quot;</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// size: 6, capacity:6</span>
+
+    vec.reserve(<span class="hljs-number">20</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;size: &quot;</span>&lt;&lt; vec.size() &lt;&lt; <span class="hljs-string">&quot;, capacity:&quot;</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// size: 6, capacity:20</span>
 }
 </code></pre>
-<pre><code>hello world
-</code></pre>
+
                                 
                                 </section>
                             
@@ -1073,7 +1090,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 how a vector grows","level":"1.10.4","depth":2,"next":{"title":"5 addional string ops","level":"1.10.5","depth":2,"path":"pages/Ch09/Ch9-5.md","ref":"pages/Ch09/Ch9-5.md","articles":[]},"previous":{"title":"3 sequential container ops","level":"1.10.3","depth":2,"path":"pages/Ch09/Ch9-3.md","ref":"pages/Ch09/Ch9-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch09/Ch9-4.md","mtime":"2023-10-06T07:28:19.012Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-13T01:31:53.425Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 how a vector grows","level":"1.10.4","depth":2,"next":{"title":"5 addional string ops","level":"1.10.5","depth":2,"path":"pages/Ch09/Ch9-5.md","ref":"pages/Ch09/Ch9-5.md","articles":[]},"previous":{"title":"3 sequential container ops","level":"1.10.3","depth":2,"path":"pages/Ch09/Ch9-3.md","ref":"pages/Ch09/Ch9-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch09/Ch9-4.md","mtime":"2023-10-13T08:43:22.723Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-13T08:47:14.457Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
