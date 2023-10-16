@@ -1019,7 +1019,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#addional-string-ops"><b>1. </b>addional string ops</a></li></ul></div><a href="#addional-string-ops" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="addional-string-ops"><a name="addional-string-ops" class="anchor-navigation-ex-anchor" href="#addional-string-ops"><i class="fa fa-link" aria-hidden="true"></i></a>1. addional string ops</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#addional-string-ops"><b>1. </b>addional string ops</a></li><ul><li><span class="title-icon "></span><a href="#construct-method"><b>1.1. </b>construct method</a></li><li><span class="title-icon "></span><a href="#modify"><b>1.2. </b>modify</a></li><li><span class="title-icon "></span><a href="#search"><b>1.3. </b>search</a></li><li><span class="title-icon "></span><a href="#compare"><b>1.4. </b>compare</a></li><li><span class="title-icon "></span><a href="#number"><b>1.5. </b>number</a></li></ul></ul></div><a href="#addional-string-ops" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="addional-string-ops"><a name="addional-string-ops" class="anchor-navigation-ex-anchor" href="#addional-string-ops"><i class="fa fa-link" aria-hidden="true"></i></a>1. addional string ops</h1>
 <p>hello.cpp </p>
 <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
@@ -1030,7 +1030,205 @@
 }
 </code></pre>
 <pre><code>hello world
+</code></pre><h2 id="construct-method"><a name="construct-method" class="anchor-navigation-ex-anchor" href="#construct-method"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. construct method</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str0</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello world!!!&quot;</span>, <span class="hljs-number">12</span>)</span></span>;
+    <span class="hljs-comment">// &apos;Hello world!&apos;</span>
+    <span class="hljs-comment">// copy 12 char from arg0</span>
+
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str1</span><span class="hljs-params">(str0, <span class="hljs-number">5</span>)</span></span>;
+    <span class="hljs-comment">// &apos; world!&apos;</span>
+    <span class="hljs-comment">// copy str0 from [5]</span>
+
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str2</span><span class="hljs-params">(str0, <span class="hljs-number">0</span> , <span class="hljs-number">5</span>)</span></span>;
+    <span class="hljs-comment">// &apos;Hello&apos;</span>
+    <span class="hljs-comment">// copy 5 char start from [0]</span>
+
+    <span class="hljs-built_in">string</span> sub0 = str0.substr(<span class="hljs-number">0</span>, <span class="hljs-number">7</span>);
+    <span class="hljs-comment">// &apos;Hello &apos;</span>
+    <span class="hljs-built_in">string</span> sub1 = str0.substr(<span class="hljs-number">8</span>);
+    <span class="hljs-comment">// &apos;rld!&apos;</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+<h2 id="modify"><a name="modify" class="anchor-navigation-ex-anchor" href="#modify"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. modify</h2>
+<p>insert(), erase(), [], append(), replace()</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> text = <span class="hljs-string">&quot;Hello, World!&quot;</span>;
+
+    <span class="hljs-comment">// Insert</span>
+    <span class="hljs-comment">// Insert &quot; C++&quot; at position 5</span>
+    text.insert(<span class="hljs-number">5</span>, <span class="hljs-string">&quot; C++&quot;</span>);  
+    <span class="hljs-comment">// &apos;Hello C++, World!&apos;</span>
+
+    <span class="hljs-comment">// Erase</span>
+    <span class="hljs-comment">// Erase 4 characters starting from position 5</span>
+    text.erase(<span class="hljs-number">5</span>, <span class="hljs-number">4</span>);
+    <span class="hljs-comment">// &apos;Hello, World!&apos;</span>
+
+    <span class="hljs-comment">// Append</span>
+    <span class="hljs-comment">// Append &quot; and C++&quot; to the end</span>
+    text.append(<span class="hljs-string">&quot; and C++&quot;</span>);
+    <span class="hljs-comment">// &apos;Hello, World! and C++&apos;</span>
+
+    <span class="hljs-comment">// Replace</span>
+    <span class="hljs-comment">// Replace 4 characters starting from position 13 with &quot;C++&quot;</span>
+    text.replace(<span class="hljs-number">13</span>, <span class="hljs-number">4</span>, <span class="hljs-string">&quot;C++&quot;</span>);
+    <span class="hljs-comment">// &apos;Hello, World!C++ C++&apos;</span>
+
+    <span class="hljs-comment">// Accessing individual characters using []</span>
+    <span class="hljs-comment">// Access the character at position 0</span>
+    <span class="hljs-keyword">char</span> character = text[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// &apos;H&apos;</span>
+
+    <span class="hljs-comment">// assign</span>
+    text.assign(<span class="hljs-string">&quot;This is a c++ string&quot;</span>);
+    <span class="hljs-comment">// &apos;This is a c++ string&apos;</span>
+
+    text.assign(<span class="hljs-string">&quot;hello, world!&quot;</span>, <span class="hljs-number">6</span>);
+    <span class="hljs-comment">// &apos;hello,&apos;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="search"><a name="search" class="anchor-navigation-ex-anchor" href="#search"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. search</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printPosition</span><span class="hljs-params">(size_t pos)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> text = <span class="hljs-string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span>;
+    <span class="hljs-comment">//                  01234567890123456789012345678901234567890123</span>
+    <span class="hljs-comment">//                  00000000001111111111222222222233333333334444</span>
+
+    <span class="hljs-comment">// Find</span>
+    <span class="hljs-keyword">size_t</span> found = text.find(<span class="hljs-string">&quot;brown&quot;</span>);
+    printPosition(found); <span class="hljs-comment">// 10</span>
+
+    <span class="hljs-comment">// Reverse Find (rfind)</span>
+    <span class="hljs-keyword">size_t</span> rfound = text.rfind(<span class="hljs-string">&quot;the&quot;</span>);
+    printPosition(rfound); <span class="hljs-comment">// 31</span>
+
+    <span class="hljs-comment">// Find First Of</span>
+    <span class="hljs-keyword">size_t</span> foundAny = text.find_first_of(<span class="hljs-string">&quot;aeiou&quot;</span>);
+    printPosition(foundAny); <span class="hljs-comment">// 2</span>
+
+    <span class="hljs-comment">// Find Last Of</span>
+    <span class="hljs-keyword">size_t</span> rfoundAny = text.find_last_of(<span class="hljs-string">&quot;aeiou&quot;</span>);
+    printPosition(rfoundAny); <span class="hljs-comment">// 41</span>
+
+    <span class="hljs-comment">// Find First Not Of</span>
+    <span class="hljs-keyword">size_t</span> foundNotOf = text.find_first_not_of(<span class="hljs-string">&quot;The quick brown fox&quot;</span>);
+    printPosition(foundNotOf); <span class="hljs-comment">// 20</span>
+
+    <span class="hljs-comment">// Find Last Not Of</span>
+    <span class="hljs-keyword">size_t</span> rfoundNotOf = text.find_last_not_of(<span class="hljs-string">&quot;dog.&quot;</span>);
+    printPosition(rfoundNotOf); <span class="hljs-comment">// 39</span>
+
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printPosition</span><span class="hljs-params">(size_t pos)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (pos != <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>::npos) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;found at &quot;</span> &lt;&lt; pos &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;not found&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+}
+</code></pre>
+<h2 id="compare"><a name="compare" class="anchor-navigation-ex-anchor" href="#compare"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. compare</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> str1 = <span class="hljs-string">&quot;apple&quot;</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> str2 = <span class="hljs-string">&quot;banana&quot;</span>;
+
+    <span class="hljs-comment">// Using compare() method</span>
+    <span class="hljs-keyword">int</span> r =str1.compare(str2); <span class="hljs-comment">// -1</span>
+
+    <span class="hljs-keyword">bool</span> result = str1 == str2; <span class="hljs-comment">// 0</span>
+    result = str1 != str2; <span class="hljs-comment">// 1</span>
+    result = str1 &lt; str2; <span class="hljs-comment">// 1</span>
+    result = str1 &gt; str2; <span class="hljs-comment">// 0</span>
+    result = str1 &lt;= str2; <span class="hljs-comment">// 1</span>
+    result = str1 &gt;= str2; <span class="hljs-comment">// 0</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="number"><a name="number" class="anchor-navigation-ex-anchor" href="#number"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. number</h2>
+<p>stoi(), stol(), stoul(), stoll(),<br>stoull(), stof(), stod(), stold()  </p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Sample string representations of numbers</span>
+    <span class="hljs-built_in">string</span> intStr = <span class="hljs-string">&quot;42&quot;</span>;
+    <span class="hljs-built_in">string</span> longStr = <span class="hljs-string">&quot;1234567890&quot;</span>;
+    <span class="hljs-built_in">string</span> unsignedLongStr = <span class="hljs-string">&quot;9876543210&quot;</span>;
+    <span class="hljs-built_in">string</span> longLongStr = <span class="hljs-string">&quot;1234567890123456789&quot;</span>;
+    <span class="hljs-built_in">string</span> unsignedLongLongStr = <span class="hljs-string">&quot;9876543210987654321&quot;</span>;
+    <span class="hljs-built_in">string</span> floatStr = <span class="hljs-string">&quot;3.14159&quot;</span>;
+    <span class="hljs-built_in">string</span> doubleStr = <span class="hljs-string">&quot;2.71828&quot;</span>;
+    <span class="hljs-built_in">string</span> longDoubleStr = <span class="hljs-string">&quot;1.61803398875&quot;</span>;
+
+    <span class="hljs-comment">// Using std::stoi() to convert to int</span>
+    <span class="hljs-keyword">int</span> intValue = <span class="hljs-built_in">std</span>::stoi(intStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;int value: &quot;</span> &lt;&lt; intValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stol() to convert to long</span>
+    <span class="hljs-keyword">long</span> longValue = <span class="hljs-built_in">std</span>::stol(longStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;long value: &quot;</span> &lt;&lt; longValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stoul() to convert to unsigned long</span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> ulongValue = <span class="hljs-built_in">std</span>::stoul(unsignedLongStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;unsigned long value: &quot;</span> &lt;&lt; ulongValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stoll() to convert to long long</span>
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> longLongValue = <span class="hljs-built_in">std</span>::stoll(longLongStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;long long value: &quot;</span> &lt;&lt; longLongValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stoull() to convert to unsigned long long</span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ulongLongValue = <span class="hljs-built_in">std</span>::stoull(unsignedLongLongStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;unsigned long long value: &quot;</span> &lt;&lt; ulongLongValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stof() to convert to float</span>
+    <span class="hljs-keyword">float</span> floatValue = <span class="hljs-built_in">std</span>::stof(floatStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;float value: &quot;</span> &lt;&lt; floatValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stod() to convert to double</span>
+    <span class="hljs-keyword">double</span> doubleValue = <span class="hljs-built_in">std</span>::stod(doubleStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;double value: &quot;</span> &lt;&lt; doubleValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Using std::stold() to convert to long double</span>
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> longDoubleValue = <span class="hljs-built_in">std</span>::stold(longDoubleStr);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;long double value: &quot;</span> &lt;&lt; longDoubleValue &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1073,7 +1271,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5 addional string ops","level":"1.10.5","depth":2,"next":{"title":"6 container adapter","level":"1.10.6","depth":2,"path":"pages/Ch09/Ch9-6.md","ref":"pages/Ch09/Ch9-6.md","articles":[]},"previous":{"title":"4 how a vector grows","level":"1.10.4","depth":2,"path":"pages/Ch09/Ch9-4.md","ref":"pages/Ch09/Ch9-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch09/Ch9-5.md","mtime":"2023-10-06T07:28:30.487Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-13T08:47:14.457Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5 addional string ops","level":"1.10.5","depth":2,"next":{"title":"6 container adapter","level":"1.10.6","depth":2,"path":"pages/Ch09/Ch9-6.md","ref":"pages/Ch09/Ch9-6.md","articles":[]},"previous":{"title":"4 how a vector grows","level":"1.10.4","depth":2,"path":"pages/Ch09/Ch9-4.md","ref":"pages/Ch09/Ch9-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch09/Ch9-5.md","mtime":"2023-10-16T02:06:54.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-16T02:07:19.127Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
