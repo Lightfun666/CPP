@@ -1187,18 +1187,80 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#overview"><b>1. </b>overview</a></li></ul></div><a href="#overview" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="overview"><a name="overview" class="anchor-navigation-ex-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>1. overview</h1>
-<p>hello.cpp </p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#overview"><b>1. </b>overview</a></li><ul><li><span class="title-icon "></span><a href="#define-associative-container"><b>1.1. </b>define associative container</a></li><li><span class="title-icon "></span><a href="#pair"><b>1.2. </b>pair</a></li></ul></ul></div><a href="#overview" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="overview"><a name="overview" class="anchor-navigation-ex-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>1. overview</h1>
+<h2 id="define-associative-container"><a name="define-associative-container" class="anchor-navigation-ex-anchor" href="#define-associative-container"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. define associative container</h2>
 <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
 <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">fncomp</span> <span class="hljs-params">(<span class="hljs-keyword">char</span> lhs, <span class="hljs-keyword">char</span> rhs)</span> </span>{<span class="hljs-keyword">return</span> lhs&gt;rhs;}
+
+<span class="hljs-keyword">struct</span> classcomp {
+  <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span> <span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>&amp; lhs, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>&amp; rhs)</span> <span class="hljs-keyword">const</span>
+  </span>{<span class="hljs-keyword">return</span> lhs &lt;rhs;}
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// method 1. initialize empty associative container</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt; first;
+    first[<span class="hljs-string">&apos;a&apos;</span>]=<span class="hljs-number">10</span>;
+    first[<span class="hljs-string">&apos;b&apos;</span>]=<span class="hljs-number">30</span>;
+    first[<span class="hljs-string">&apos;c&apos;</span>]=<span class="hljs-number">50</span>;
+    first[<span class="hljs-string">&apos;d&apos;</span>]=<span class="hljs-number">70</span>;
+
+    <span class="hljs-comment">// method 2. initialize by a range indicated by iterator</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt; second (first.begin(),first.end());
+
+    <span class="hljs-comment">// method 3. copy from another associative container</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt; third (second);
+
+    <span class="hljs-comment">// method 4. initialize with order class</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>,classcomp&gt; fourth;    <span class="hljs-comment">// class as Compare</span>
+
+    <span class="hljs-comment">// method 5. initialize with order function</span>
+    <span class="hljs-keyword">bool</span>(*fn_pt)(<span class="hljs-keyword">char</span>,<span class="hljs-keyword">char</span>) = fncomp;
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>,<span class="hljs-keyword">bool</span>(*)(<span class="hljs-keyword">char</span>,<span class="hljs-keyword">char</span>)&gt; fifth (fn_pt); <span class="hljs-comment">// function pointer as Compare</span>
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<pre><code>hello world
+<h2 id="pair"><a name="pair" class="anchor-navigation-ex-anchor" href="#pair"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. pair</h2>
+<p>pair is defined in <strong>utility</strong> header  </p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;utility&gt;</span>      // std::pair, std::make_pair</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span>       // std::string</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span>     // std::cout</span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::pair;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::make_pair;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// method 1. default constructor</span>
+    pair &lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">double</span>&gt; product1;                     
+
+    <span class="hljs-comment">// method 2. value initialization</span>
+    pair &lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">double</span>&gt; product2(<span class="hljs-string">&quot;tomatoes&quot;</span>,<span class="hljs-number">2.30</span>);
+
+    <span class="hljs-comment">// method 3. copy constructor</span>
+    pair &lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">double</span>&gt; product3(product2);
+
+    <span class="hljs-comment">// method 4. list initialization</span>
+    pair &lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">double</span>&gt; product4{<span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-number">6</span>};
+
+    <span class="hljs-comment">// method 5. make_pair</span>
+    product1 = make_pair(<span class="hljs-built_in">string</span>(<span class="hljs-string">&quot;lightbulbs&quot;</span>),<span class="hljs-number">0.99</span>);
+
+    product2.first = <span class="hljs-string">&quot;shoes&quot;</span>; <span class="hljs-comment">// the type of first is string</span>
+    product2.second = <span class="hljs-number">39.9</span>;   <span class="hljs-comment">// the type of second is double</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
+
                                 
                                 </section>
                             
@@ -1241,7 +1303,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2 overview","level":"1.12.2","depth":2,"next":{"title":"3 operation","level":"1.12.3","depth":2,"path":"pages/Ch11/Ch11-3.md","ref":"pages/Ch11/Ch11-3.md","articles":[]},"previous":{"title":"1 an example","level":"1.12.1","depth":2,"path":"pages/Ch11/Ch11-1.md","ref":"pages/Ch11/Ch11-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch11/Ch11-2.md","mtime":"2023-10-18T01:16:04.889Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-18T01:31:25.547Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2 overview","level":"1.12.2","depth":2,"next":{"title":"3 operation","level":"1.12.3","depth":2,"path":"pages/Ch11/Ch11-3.md","ref":"pages/Ch11/Ch11-3.md","articles":[]},"previous":{"title":"1 an example","level":"1.12.1","depth":2,"path":"pages/Ch11/Ch11-1.md","ref":"pages/Ch11/Ch11-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch11/Ch11-2.md","mtime":"2023-10-18T08:04:23.299Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-18T08:05:16.179Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
