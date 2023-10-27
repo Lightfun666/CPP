@@ -1187,18 +1187,247 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#operation"><b>1. </b>operation</a></li></ul></div><a href="#operation" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="operation"><a name="operation" class="anchor-navigation-ex-anchor" href="#operation"><i class="fa fa-link" aria-hidden="true"></i></a>1. operation</h1>
-<p>hello.cpp </p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
-<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#operation"><b>1. </b>operation</a></li><ul><li><span class="title-icon "></span><a href="#iterator"><b>1.1. </b>iterator</a></li><li><span class="title-icon "></span><a href="#insert-new-element"><b>1.2. </b>insert new element</a></li><li><span class="title-icon "></span><a href="#access-element"><b>1.3. </b>access element</a></li><ul><li><span class="title-icon "></span><a href="#upperbound-lowerbound"><b>1.3.1. </b>upperbound(), lowerbound()</a></li><li><span class="title-icon "></span><a href="#equalrange"><b>1.3.2. </b>equal_range()</a></li></ul></ul></ul></div><a href="#operation" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="operation"><a name="operation" class="anchor-navigation-ex-anchor" href="#operation"><i class="fa fa-link" aria-hidden="true"></i></a>1. operation</h1>
+<p><strong>key_type</strong> container&apos;s key type<br><strong>mapped_type</strong> related value type (map only)<br><strong>value_type</strong> for set, equal to key_type; for map, it is pair of {const key_type, mapped_type}</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;set&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">set</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+
+    <span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::value_type val1;   <span class="hljs-comment">// string</span>
+    <span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::key_type val2;     <span class="hljs-comment">// string</span>
+
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::value_type val3;  <span class="hljs-comment">// pair&lt;const string, int&gt;</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::key_type val4;    <span class="hljs-comment">// string</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::mapped_type val5; <span class="hljs-comment">// int</span>
+
 }
 </code></pre>
-<pre><code>hello world
+<h2 id="iterator"><a name="iterator" class="anchor-navigation-ex-anchor" href="#iterator"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. iterator</h2>
+<p>iterator of set is const, can not be assigned.</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;set&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">set</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt; s0 = {<span class="hljs-string">&quot;aaa&quot;</span>, <span class="hljs-string">&quot;bbb&quot;</span>, <span class="hljs-string">&quot;ccc&quot;</span>};
+    <span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::iterator sit = s0.begin();
+    <span class="hljs-keyword">while</span>(sit != s0.end())
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *sit &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+        <span class="hljs-comment">// error: iterator of set is read-only</span>
+        <span class="hljs-comment">// *sit = string(&quot;qwe&quot;);</span>
+        sit++;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// aaa bbb ccc</span>
+
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; m0;
+    m0[<span class="hljs-string">&quot;A&quot;</span>] = <span class="hljs-number">10</span>;
+    m0[<span class="hljs-string">&quot;B&quot;</span>] = <span class="hljs-number">11</span>;
+    m0[<span class="hljs-string">&quot;C&quot;</span>] = <span class="hljs-number">12</span>;
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::iterator mit = m0.begin();
+    <span class="hljs-keyword">while</span>(mit != m0.end())
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; mit-&gt;first &lt;&lt; <span class="hljs-string">&quot;:&quot;</span> &lt;&lt; mit-&gt;second &lt;&lt; <span class="hljs-string">&quot;, &quot;</span>;
+        mit++;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// A:10, B:11, C:12, </span>
+}
 </code></pre>
+<p>insert return value<br>insert() return pair of iterator and insert status bool</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;set&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">set</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::pair;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::make_pair;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+    <span class="hljs-comment">// set insert</span>
+    <span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt; s0;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; v0 = {<span class="hljs-string">&quot;aa&quot;</span>, <span class="hljs-string">&quot;bb&quot;</span>, <span class="hljs-string">&quot;cc&quot;</span>};    
+    s0.insert(v0.begin(), v0.end());
+    pair&lt;<span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::iterator, <span class="hljs-keyword">bool</span>&gt; sresult;
+
+    sresult = s0.insert(<span class="hljs-string">&quot;aa&quot;</span>); <span class="hljs-comment">// &quot;aa&quot; already exists, &apos;.second&apos; is false</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; *(sresult.first) &lt;&lt; sresult.second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// aa0</span>
+
+    sresult = s0.insert(<span class="hljs-string">&quot;dd&quot;</span>); <span class="hljs-comment">// &quot;dd&quot; insert success, &apos;.second&apos; is true</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; *(sresult.first) &lt;&lt; sresult.second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// dd1</span>
+
+    <span class="hljs-comment">// map insert</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt; m0;
+    pair&lt;<span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt;::iterator, <span class="hljs-keyword">bool</span>&gt; mresult;
+    mresult = m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;z&apos;</span>,<span class="hljs-number">200</span>));
+    <span class="hljs-built_in">cout</span> &lt;&lt; mresult.first-&gt;first &lt;&lt; mresult.second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// z1</span>
+    mresult = m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;z&apos;</span>,<span class="hljs-number">200</span>));
+    <span class="hljs-built_in">cout</span> &lt;&lt; mresult.first-&gt;first &lt;&lt; mresult.second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// z0</span>
+}
+</code></pre>
+<h2 id="insert-new-element"><a name="insert-new-element" class="anchor-navigation-ex-anchor" href="#insert-new-element"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. insert new element</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::pair;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+    <span class="hljs-comment">// map insert</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt; m0;
+    m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-number">100</span>));
+    m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;b&apos;</span>,<span class="hljs-number">200</span>));
+    m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-number">300</span>));
+    m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;d&apos;</span>,<span class="hljs-number">400</span>));
+    m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;e&apos;</span>,<span class="hljs-number">500</span>));
+    m0.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;f&apos;</span>,<span class="hljs-number">600</span>));
+
+    m0.erase(m0.begin());
+    <span class="hljs-comment">// b:200, c:300, d:400, e:500, f:600,</span>
+
+    m0.erase(<span class="hljs-string">&apos;b&apos;</span>);
+    <span class="hljs-comment">// c:300, d:400, e:500, f:600,</span>
+
+    m0.erase(m0.begin(), m0.end());
+    <span class="hljs-comment">// (empty map)</span>
+}
+</code></pre>
+<p>const map cannot use[] because it may insert data.</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::pair;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+    <span class="hljs-comment">// map insert</span>
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt; m0;
+    m0[<span class="hljs-string">&apos;a&apos;</span>] = <span class="hljs-number">100</span>;
+    m0[<span class="hljs-string">&apos;b&apos;</span>] = <span class="hljs-number">200</span>;
+
+    m0[<span class="hljs-string">&apos;b&apos;</span>]++;
+    <span class="hljs-comment">// &apos;a&apos;:100, &apos;b&apos;:201</span>
+
+    <span class="hljs-keyword">const</span> <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt; m1 = m0;
+    <span class="hljs-comment">// error: const map cannot use []</span>
+    <span class="hljs-comment">// m1[&apos;c&apos;] = 300;</span>
+}
+</code></pre>
+<h2 id="access-element"><a name="access-element" class="anchor-navigation-ex-anchor" href="#access-element"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. access element</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;set&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">set</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+    <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; s0 = {<span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>};
+
+    <span class="hljs-comment">// can not find 1 so it return s0.end()</span>
+    <span class="hljs-keyword">if</span> (s0.find(<span class="hljs-number">1</span>) == s0.end())
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;1 is not in the s0.&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; *s0.find(<span class="hljs-number">11</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// 11</span>
+}
+</code></pre>
+<h3 id="upperbound-lowerbound"><a name="upperbound-lowerbound" class="anchor-navigation-ex-anchor" href="#upperbound-lowerbound"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.1. upperbound(), lowerbound()</h3>
+<p>multimap upperbound(), lowerbound()</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">multimap</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::make_pair;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-built_in">multimap</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt; mymultimap;
+  <span class="hljs-built_in">multimap</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;::iterator it,itlow,itup;
+
+  mymultimap.insert(make_pair(<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-number">10</span>));
+  mymultimap.insert(make_pair(<span class="hljs-string">&apos;b&apos;</span>,<span class="hljs-number">121</span>));
+  mymultimap.insert(make_pair(<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-number">1001</span>));
+  mymultimap.insert(make_pair(<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-number">2002</span>));
+  mymultimap.insert(make_pair(<span class="hljs-string">&apos;d&apos;</span>,<span class="hljs-number">11011</span>));
+  mymultimap.insert(make_pair(<span class="hljs-string">&apos;e&apos;</span>,<span class="hljs-number">44</span>));
+
+  itlow = mymultimap.lower_bound (<span class="hljs-string">&apos;b&apos;</span>);  <span class="hljs-comment">// itlow points to b</span>
+  itup = mymultimap.upper_bound (<span class="hljs-string">&apos;d&apos;</span>);   <span class="hljs-comment">// itup points to e (not d)</span>
+
+  <span class="hljs-comment">// print range [itlow,itup):</span>
+  <span class="hljs-keyword">for</span> (it=itlow; it!=itup; ++it)
+    <span class="hljs-built_in">cout</span> &lt;&lt; (*it).first &lt;&lt; <span class="hljs-string">&quot; =&gt; &quot;</span> &lt;&lt; (*it).second &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>output</p>
+<pre><code>b =&gt; 121
+c =&gt; 1001
+c =&gt; 2002
+d =&gt; 11011
+</code></pre><h3 id="equalrange"><a name="equalrange" class="anchor-navigation-ex-anchor" href="#equalrange"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.2. equal_range()</h3>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">multimap</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::pair;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">multimap</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt; mymm;
+
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-number">10</span>));
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;b&apos;</span>,<span class="hljs-number">20</span>));
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;b&apos;</span>,<span class="hljs-number">30</span>));
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;b&apos;</span>,<span class="hljs-number">40</span>));
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-number">50</span>));
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-number">60</span>));
+    mymm.insert(pair&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;(<span class="hljs-string">&apos;d&apos;</span>,<span class="hljs-number">60</span>));
+
+    <span class="hljs-built_in">std</span>::pair &lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">multimap</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;::iterator, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">multimap</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;::iterator&gt; ret;
+    ret = mymm.equal_range(<span class="hljs-string">&apos;b&apos;</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">std</span>::<span class="hljs-built_in">multimap</span>&lt;<span class="hljs-keyword">char</span>,<span class="hljs-keyword">int</span>&gt;::iterator it=ret.first; it!=ret.second; ++it)
+      <span class="hljs-built_in">cout</span> &lt;&lt; it-&gt;second &lt;&lt; <span class="hljs-string">&apos; &apos;</span>;
+    <span class="hljs-comment">// 20 30 40</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1241,7 +1470,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3 operation","level":"1.12.3","depth":2,"next":{"title":"4 unordered","level":"1.12.4","depth":2,"path":"pages/Ch11/Ch11-4.md","ref":"pages/Ch11/Ch11-4.md","articles":[]},"previous":{"title":"2 overview","level":"1.12.2","depth":2,"path":"pages/Ch11/Ch11-2.md","ref":"pages/Ch11/Ch11-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch11/Ch11-3.md","mtime":"2023-10-18T01:16:15.255Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-18T08:05:16.179Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3 operation","level":"1.12.3","depth":2,"next":{"title":"4 unordered","level":"1.12.4","depth":2,"path":"pages/Ch11/Ch11-4.md","ref":"pages/Ch11/Ch11-4.md","articles":[]},"previous":{"title":"2 overview","level":"1.12.2","depth":2,"path":"pages/Ch11/Ch11-2.md","ref":"pages/Ch11/Ch11-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch11/Ch11-3.md","mtime":"2023-10-26T09:04:12.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-27T03:06:12.098Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
