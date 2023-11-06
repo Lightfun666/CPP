@@ -1,0 +1,1800 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1 smart pointer · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Ch12-2.html" />
+    
+    
+    <link rel="prev" href="Ch12.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Ch01/Ch1.html">
+            
+                <a href="../Ch01/Ch1.html">
+            
+                    
+                    01 Hello World
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Ch01/Ch1-1.html">
+            
+                <a href="../Ch01/Ch1-1.html">
+            
+                    
+                    1 hello world
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Ch02/Ch2.html">
+            
+                <a href="../Ch02/Ch2.html">
+            
+                    
+                    02 Variable and Basic Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Ch02/Ch2-1.html">
+            
+                <a href="../Ch02/Ch2-1.html">
+            
+                    
+                    1 primitive built-in types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Ch02/Ch2-2.html">
+            
+                <a href="../Ch02/Ch2-2.html">
+            
+                    
+                    2 variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Ch02/Ch2-3.html">
+            
+                <a href="../Ch02/Ch2-3.html">
+            
+                    
+                    3 compound types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Ch02/Ch2-4.html">
+            
+                <a href="../Ch02/Ch2-4.html">
+            
+                    
+                    4 const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Ch02/Ch2-5.html">
+            
+                <a href="../Ch02/Ch2-5.html">
+            
+                    
+                    5 types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Ch02/Ch2-6.html">
+            
+                <a href="../Ch02/Ch2-6.html">
+            
+                    
+                    6 data structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Ch03/Ch3.html">
+            
+                <a href="../Ch03/Ch3.html">
+            
+                    
+                    03 Strings, Vectors, and Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Ch03/Ch3-1.html">
+            
+                <a href="../Ch03/Ch3-1.html">
+            
+                    
+                    1 using
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Ch03/Ch3-2.html">
+            
+                <a href="../Ch03/Ch3-2.html">
+            
+                    
+                    2 std::string
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Ch03/Ch3-3.html">
+            
+                <a href="../Ch03/Ch3-3.html">
+            
+                    
+                    3 std::vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Ch03/Ch3-4.html">
+            
+                <a href="../Ch03/Ch3-4.html">
+            
+                    
+                    4 iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Ch03/Ch3-5.html">
+            
+                <a href="../Ch03/Ch3-5.html">
+            
+                    
+                    5 array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Ch03/Ch3-6.html">
+            
+                <a href="../Ch03/Ch3-6.html">
+            
+                    
+                    6 multidimensional array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Ch04/Ch4.html">
+            
+                <a href="../Ch04/Ch4.html">
+            
+                    
+                    04 Expression
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Ch04/Ch4-1.html">
+            
+                <a href="../Ch04/Ch4-1.html">
+            
+                    
+                    1 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Ch04/Ch4-2.html">
+            
+                <a href="../Ch04/Ch4-2.html">
+            
+                    
+                    2 arithmetic operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Ch04/Ch4-3.html">
+            
+                <a href="../Ch04/Ch4-3.html">
+            
+                    
+                    3 logical and relational operators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Ch04/Ch4-4.html">
+            
+                <a href="../Ch04/Ch4-4.html">
+            
+                    
+                    4 assignment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../Ch04/Ch4-5.html">
+            
+                <a href="../Ch04/Ch4-5.html">
+            
+                    
+                    5 increment and decrement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../Ch04/Ch4-6.html">
+            
+                <a href="../Ch04/Ch4-6.html">
+            
+                    
+                    6 member access
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../Ch04/Ch4-7.html">
+            
+                <a href="../Ch04/Ch4-7.html">
+            
+                    
+                    7 conditional
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../Ch04/Ch4-8.html">
+            
+                <a href="../Ch04/Ch4-8.html">
+            
+                    
+                    8 bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../Ch04/Ch4-9.html">
+            
+                <a href="../Ch04/Ch4-9.html">
+            
+                    
+                    9 sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../Ch04/Ch4-10.html">
+            
+                <a href="../Ch04/Ch4-10.html">
+            
+                    
+                    10 comma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../Ch04/Ch4-11.html">
+            
+                <a href="../Ch04/Ch4-11.html">
+            
+                    
+                    11 type conversion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../Ch04/Ch4-12.html">
+            
+                <a href="../Ch04/Ch4-12.html">
+            
+                    
+                    12 precedence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Ch05/Ch5.html">
+            
+                <a href="../Ch05/Ch5.html">
+            
+                    
+                    05 Statements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Ch05/Ch5-1.html">
+            
+                <a href="../Ch05/Ch5-1.html">
+            
+                    
+                    1 simple
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Ch05/Ch5-2.html">
+            
+                <a href="../Ch05/Ch5-2.html">
+            
+                    
+                    2 scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Ch05/Ch5-3.html">
+            
+                <a href="../Ch05/Ch5-3.html">
+            
+                    
+                    3 conditional
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Ch05/Ch5-4.html">
+            
+                <a href="../Ch05/Ch5-4.html">
+            
+                    
+                    4 interative
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Ch05/Ch5-5.html">
+            
+                <a href="../Ch05/Ch5-5.html">
+            
+                    
+                    5 jump
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Ch05/Ch5-6.html">
+            
+                <a href="../Ch05/Ch5-6.html">
+            
+                    
+                    6 try exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Ch06/Ch6.html">
+            
+                <a href="../Ch06/Ch6.html">
+            
+                    
+                    06 Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../Ch06/Ch6-1.html">
+            
+                <a href="../Ch06/Ch6-1.html">
+            
+                    
+                    1 basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../Ch06/Ch6-2.html">
+            
+                <a href="../Ch06/Ch6-2.html">
+            
+                    
+                    2 pass argument
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../Ch06/Ch6-3.html">
+            
+                <a href="../Ch06/Ch6-3.html">
+            
+                    
+                    3 return
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../Ch06/Ch6-4.html">
+            
+                <a href="../Ch06/Ch6-4.html">
+            
+                    
+                    4 overloaded
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../Ch06/Ch6-5.html">
+            
+                <a href="../Ch06/Ch6-5.html">
+            
+                    
+                    5 other features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../Ch06/Ch6-6.html">
+            
+                <a href="../Ch06/Ch6-6.html">
+            
+                    
+                    6 matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../Ch06/Ch6-7.html">
+            
+                <a href="../Ch06/Ch6-7.html">
+            
+                    
+                    7 pointer to functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../Ch07/Ch7.html">
+            
+                <a href="../Ch07/Ch7.html">
+            
+                    
+                    07 Classes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../Ch07/Ch7-1.html">
+            
+                <a href="../Ch07/Ch7-1.html">
+            
+                    
+                    1 abstract data type
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../Ch07/Ch7-2.html">
+            
+                <a href="../Ch07/Ch7-2.html">
+            
+                    
+                    2 access control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../Ch07/Ch7-3.html">
+            
+                <a href="../Ch07/Ch7-3.html">
+            
+                    
+                    3 other feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../Ch07/Ch7-4.html">
+            
+                <a href="../Ch07/Ch7-4.html">
+            
+                    
+                    4 scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../Ch07/Ch7-5.html">
+            
+                <a href="../Ch07/Ch7-5.html">
+            
+                    
+                    5 constructor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../Ch07/Ch7-6.html">
+            
+                <a href="../Ch07/Ch7-6.html">
+            
+                    
+                    6 static class member
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Ch08/Ch8.html">
+            
+                <a href="../Ch08/Ch8.html">
+            
+                    
+                    08 The IO Library
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Ch08/Ch8-1.html">
+            
+                <a href="../Ch08/Ch8-1.html">
+            
+                    
+                    1 IO Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../Ch08/Ch8-2.html">
+            
+                <a href="../Ch08/Ch8-2.html">
+            
+                    
+                    2 file IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../Ch08/Ch8-3.html">
+            
+                <a href="../Ch08/Ch8-3.html">
+            
+                    
+                    3 string stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../Ch09/Ch9.html">
+            
+                <a href="../Ch09/Ch9.html">
+            
+                    
+                    09 Sequential Containers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../Ch09/Ch9-1.html">
+            
+                <a href="../Ch09/Ch9-1.html">
+            
+                    
+                    1 overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../Ch09/Ch9-2.html">
+            
+                <a href="../Ch09/Ch9-2.html">
+            
+                    
+                    2 container library overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../Ch09/Ch9-3.html">
+            
+                <a href="../Ch09/Ch9-3.html">
+            
+                    
+                    3 sequential container ops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../Ch09/Ch9-4.html">
+            
+                <a href="../Ch09/Ch9-4.html">
+            
+                    
+                    4 how a vector grows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../Ch09/Ch9-5.html">
+            
+                <a href="../Ch09/Ch9-5.html">
+            
+                    
+                    5 addional string ops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../Ch09/Ch9-6.html">
+            
+                <a href="../Ch09/Ch9-6.html">
+            
+                    
+                    6 container adapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Ch10/Ch10.html">
+            
+                <a href="../Ch10/Ch10.html">
+            
+                    
+                    10 Algorithm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Ch10/Ch10-1.html">
+            
+                <a href="../Ch10/Ch10-1.html">
+            
+                    
+                    1 overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Ch10/Ch10-2.html">
+            
+                <a href="../Ch10/Ch10-2.html">
+            
+                    
+                    2 algorithm start
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Ch10/Ch10-3.html">
+            
+                <a href="../Ch10/Ch10-3.html">
+            
+                    
+                    3 self-define operation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../Ch10/Ch10-4.html">
+            
+                <a href="../Ch10/Ch10-4.html">
+            
+                    
+                    4 iterator(again)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../Ch10/Ch10-5.html">
+            
+                <a href="../Ch10/Ch10-5.html">
+            
+                    
+                    5 generic algorithm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../Ch10/Ch10-6.html">
+            
+                <a href="../Ch10/Ch10-6.html">
+            
+                    
+                    6 container algorithm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../Ch11/Ch11.html">
+            
+                <a href="../Ch11/Ch11.html">
+            
+                    
+                    11 Associative Container
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../Ch11/Ch11-1.html">
+            
+                <a href="../Ch11/Ch11-1.html">
+            
+                    
+                    1 an example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../Ch11/Ch11-2.html">
+            
+                <a href="../Ch11/Ch11-2.html">
+            
+                    
+                    2 overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../Ch11/Ch11-3.html">
+            
+                <a href="../Ch11/Ch11-3.html">
+            
+                    
+                    3 operation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../Ch11/Ch11-4.html">
+            
+                <a href="../Ch11/Ch11-4.html">
+            
+                    
+                    4 unordered
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Ch12.md">
+            
+                <span>
+            
+                    
+                    12 Dynamic Memory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.13.1" data-path="Ch12-1.html">
+            
+                <a href="Ch12-1.html">
+            
+                    
+                    1 smart pointer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="Ch12-2.html">
+            
+                <a href="Ch12-2.html">
+            
+                    
+                    2 dynamic array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="Ch12-3.html">
+            
+                <a href="Ch12-3.html">
+            
+                    
+                    3 example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >1 smart pointer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#hello-world"><b>1. </b>hello world</a></li><ul><li><span class="title-icon "></span><a href="#make-shared-pointer-and-constructor"><b>1.1. </b>make shared pointer and constructor</a></li><li><span class="title-icon "></span><a href="#new-objec-with-constructor"><b>1.2. </b>new objec with constructor</a></li><li><span class="title-icon "></span><a href="#new-with-initial-value"><b>1.3. </b>new with initial value</a></li><li><span class="title-icon "></span><a href="#new-and-badalloc-exception"><b>1.4. </b>new and bad_alloc exception</a></li><li><span class="title-icon "></span><a href="#new-and-nothrow"><b>1.5. </b>new and nothrow</a></li><li><span class="title-icon "></span><a href="#new-and-delete"><b>1.6. </b>new and delete</a></li><li><span class="title-icon "></span><a href="#initialized-shared-pointer-with-new"><b>1.7. </b>initialized shared pointer with new</a></li><li><span class="title-icon "></span><a href="#shared-pointer-reset"><b>1.8. </b>shared pointer reset()</a></li><li><span class="title-icon "></span><a href="#shared-pointer-with-deleter"><b>1.9. </b>shared pointer with deleter</a></li><li><span class="title-icon "></span><a href="#release-unique-pointer"><b>1.10. </b>release unique pointer</a></li><li><span class="title-icon "></span><a href="#transfer-unique-pointer-with-move"><b>1.11. </b>transfer unique pointer with move()</a></li><li><span class="title-icon "></span><a href="#unique-pointer-with-deleter"><b>1.12. </b>unique pointer with deleter</a></li><li><span class="title-icon "></span><a href="#weak-pointer"><b>1.13. </b>weak pointer</a></li></ul></ul></div><a href="#hello-world" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="hello-world"><a name="hello-world" class="anchor-navigation-ex-anchor" href="#hello-world"><i class="fa fa-link" aria-hidden="true"></i></a>1. hello world</h1>
+<h2 id="make-shared-pointer-and-constructor"><a name="make-shared-pointer-and-constructor" class="anchor-navigation-ex-anchor" href="#make-shared-pointer-and-constructor"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. make shared pointer and constructor</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Using std::make_shared to create a shared_ptr to MyClass</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt; sharedPtr = <span class="hljs-built_in">std</span>::make_shared&lt;MyClass&gt;(<span class="hljs-number">42</span>);
+
+    <span class="hljs-comment">// You can use the sharedPtr just like a regular pointer</span>
+    sharedPtr-&gt;doSomething();
+
+    <span class="hljs-comment">// The memory will be automatically managed by shared_ptr</span>
+    <span class="hljs-comment">// When the sharedPtr goes out of scope, the object will be deleted</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="new-objec-with-constructor"><a name="new-objec-with-constructor" class="anchor-navigation-ex-anchor" href="#new-objec-with-constructor"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. new objec with constructor</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Constructor with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    MyClass(<span class="hljs-keyword">int</span> value1, <span class="hljs-keyword">int</span> value2) : value_(value1 + value2) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Constructor with value1 + value2: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printValue</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Destructor for value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Using &apos;new&apos; with value initialization</span>
+    MyClass* ptr1 = <span class="hljs-keyword">new</span> MyClass(<span class="hljs-number">42</span>);
+    ptr1-&gt;printValue();
+
+    <span class="hljs-comment">// Using &apos;new&apos; with list initialization</span>
+    MyClass* ptr2 = <span class="hljs-keyword">new</span> MyClass{<span class="hljs-number">10</span>, <span class="hljs-number">32</span>};
+    ptr2-&gt;printValue();
+
+    <span class="hljs-comment">// Deallocate the memory when done</span>
+    <span class="hljs-keyword">delete</span> ptr1;
+    <span class="hljs-keyword">delete</span> ptr2;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="new-with-initial-value"><a name="new-with-initial-value" class="anchor-navigation-ex-anchor" href="#new-with-initial-value"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. new with initial value</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Dynamically allocate memory for a const int</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>* pci = <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">const</span> <span class="hljs-title">int</span><span class="hljs-params">(<span class="hljs-number">1024</span>)</span></span>;
+
+    <span class="hljs-comment">// Access the value</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Value: &quot;</span> &lt;&lt; *pci &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Clean up the dynamically allocated memory</span>
+    <span class="hljs-keyword">delete</span> pci;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="new-and-badalloc-exception"><a name="new-and-badalloc-exception" class="anchor-navigation-ex-anchor" href="#new-and-badalloc-exception"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. new and bad_alloc exception</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;new&gt;</span> // Include the <span class="hljs-meta-string">&lt;new&gt;</span> header for std::bad_alloc</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-comment">// Attempt to allocate a large amount of memory</span>
+        <span class="hljs-keyword">size_t</span> size = <span class="hljs-number">1U</span>LL &lt;&lt; <span class="hljs-number">40</span>; <span class="hljs-comment">// 1 terabyte (assuming 64-bit system)</span>
+
+        <span class="hljs-keyword">char</span>* bigArray = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[size];
+
+        <span class="hljs-comment">// If allocation is successful, you can use the allocated memory here</span>
+
+        <span class="hljs-comment">// Don&apos;t forget to release the memory when done</span>
+        <span class="hljs-keyword">delete</span>[] bigArray;
+    } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::bad_alloc&amp; e) {
+        <span class="hljs-comment">// Handle the exception</span>
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Memory allocation failed: &quot;</span> &lt;&lt; e.what() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="new-and-nothrow"><a name="new-and-nothrow" class="anchor-navigation-ex-anchor" href="#new-and-nothrow"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. new and nothrow</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;new&gt;</span> // Include the <span class="hljs-meta-string">&lt;new&gt;</span> header for std::nothrow</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span>* intArray;
+
+    <span class="hljs-comment">// Attempt to allocate memory for an array of integers</span>
+    intArray = <span class="hljs-keyword">new</span> (<span class="hljs-built_in">std</span>::nothrow) <span class="hljs-keyword">int</span>[<span class="hljs-number">10000</span>];
+
+    <span class="hljs-keyword">if</span> (intArray) {
+        <span class="hljs-comment">// Allocation was successful</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; ++i) {
+            intArray[i] = i;
+        }
+
+        <span class="hljs-comment">// Use the allocated memory</span>
+
+        <span class="hljs-comment">// Don&apos;t forget to deallocate the memory</span>
+        <span class="hljs-keyword">delete</span>[] intArray;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Allocation failed</span>
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Memory allocation failed&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="new-and-delete"><a name="new-and-delete" class="anchor-navigation-ex-anchor" href="#new-and-delete"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. new and delete</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Allocate memory for an integer using &apos;new&apos;</span>
+    <span class="hljs-keyword">int</span>* dynamicInt = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>;
+
+    <span class="hljs-keyword">if</span> (dynamicInt) {
+        <span class="hljs-comment">// Initialize the dynamically allocated integer</span>
+        *dynamicInt = <span class="hljs-number">42</span>;
+
+        <span class="hljs-comment">// Use the allocated memory</span>
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Dynamically allocated integer: &quot;</span> &lt;&lt; *dynamicInt &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-comment">// Deallocate the memory using &apos;delete&apos;</span>
+        <span class="hljs-keyword">delete</span> dynamicInt;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Memory allocation failed&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="initialized-shared-pointer-with-new"><a name="initialized-shared-pointer-with-new" class="anchor-navigation-ex-anchor" href="#initialized-shared-pointer-with-new"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. initialized shared pointer with new</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Using std::shared_ptr constructor with &apos;new&apos;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt; sharedPtr(<span class="hljs-keyword">new</span> MyClass(<span class="hljs-number">42</span>));
+
+    <span class="hljs-comment">// You can use the sharedPtr just like a regular pointer</span>
+    sharedPtr-&gt;doSomething();
+
+    <span class="hljs-comment">// The memory will be automatically managed by shared_ptr</span>
+    <span class="hljs-comment">// When the sharedPtr goes out of scope, the object will be deleted</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="shared-pointer-reset"><a name="shared-pointer-reset" class="anchor-navigation-ex-anchor" href="#shared-pointer-reset"><i class="fa fa-link" aria-hidden="true"></i></a>1.8. shared pointer reset()</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Create a shared_ptr pointing to an instance of MyClass</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt; sharedPtr = <span class="hljs-built_in">std</span>::make_shared&lt;MyClass&gt;(<span class="hljs-number">42</span>);
+
+    <span class="hljs-comment">// Use the sharedPtr</span>
+    sharedPtr-&gt;doSomething();
+
+    <span class="hljs-comment">// Reset the sharedPtr to point to a new instance of MyClass</span>
+    sharedPtr.reset(<span class="hljs-keyword">new</span> MyClass(<span class="hljs-number">10</span>));
+
+    <span class="hljs-comment">// Use the sharedPtr to access the new object</span>
+    sharedPtr-&gt;doSomething();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="shared-pointer-with-deleter"><a name="shared-pointer-with-deleter" class="anchor-navigation-ex-anchor" href="#shared-pointer-with-deleter"><i class="fa fa-link" aria-hidden="true"></i></a>1.9. shared pointer with deleter</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">customDeleter</span><span class="hljs-params">(MyClass* ptr)</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Custom deleter called for MyClass instance with value: &quot;</span> &lt;&lt; ptr-&gt;value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">delete</span> ptr; <span class="hljs-comment">// You can define your own cleanup logic here</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Create a shared_ptr with a custom deleter</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt; sharedPtr(<span class="hljs-keyword">new</span> MyClass(<span class="hljs-number">42</span>), customDeleter);
+
+    <span class="hljs-comment">// Use the sharedPtr</span>
+    sharedPtr-&gt;doSomething();
+
+    <span class="hljs-comment">// sharedPtr will automatically call the custom deleter when it goes out of scope</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="release-unique-pointer"><a name="release-unique-pointer" class="anchor-navigation-ex-anchor" href="#release-unique-pointer"><i class="fa fa-link" aria-hidden="true"></i></a>1.10. release unique pointer</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Create a unique_ptr</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;MyClass&gt; uniquePtr = <span class="hljs-built_in">std</span>::make_unique&lt;MyClass&gt;(<span class="hljs-number">42</span>);
+
+    <span class="hljs-comment">// Use the uniquePtr</span>
+    uniquePtr-&gt;doSomething();
+
+    <span class="hljs-comment">// Release ownership without destroying the object</span>
+    MyClass* releasedPtr = uniquePtr.release();
+
+    <span class="hljs-comment">// uniquePtr no longer owns the object</span>
+    <span class="hljs-keyword">if</span> (!uniquePtr) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;uniquePtr no longer owns the object.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-comment">// Use the releasedPtr</span>
+    <span class="hljs-keyword">if</span> (releasedPtr) {
+        releasedPtr-&gt;doSomething();
+    }
+
+    <span class="hljs-comment">// Manually delete the object</span>
+    <span class="hljs-keyword">delete</span> releasedPtr;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="transfer-unique-pointer-with-move"><a name="transfer-unique-pointer-with-move" class="anchor-navigation-ex-anchor" href="#transfer-unique-pointer-with-move"><i class="fa fa-link" aria-hidden="true"></i></a>1.11. transfer unique pointer with move()</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Create a unique_ptr</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;MyClass&gt; uniquePtr1 = <span class="hljs-built_in">std</span>::make_unique&lt;MyClass&gt;(<span class="hljs-number">42</span>);
+
+    <span class="hljs-comment">// Use uniquePtr1</span>
+    uniquePtr1-&gt;doSomething();
+
+    <span class="hljs-comment">// Transfer ownership using the move constructor</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;MyClass&gt; uniquePtr2 = <span class="hljs-built_in">std</span>::move(uniquePtr1);
+
+    <span class="hljs-comment">// uniquePtr1 no longer owns the object</span>
+    <span class="hljs-keyword">if</span> (!uniquePtr1) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;uniquePtr1 no longer owns the object.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-comment">// Use uniquePtr2</span>
+    uniquePtr2-&gt;doSomething();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="unique-pointer-with-deleter"><a name="unique-pointer-with-deleter" class="anchor-navigation-ex-anchor" href="#unique-pointer-with-deleter"><i class="fa fa-link" aria-hidden="true"></i></a>1.12. unique pointer with deleter</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-comment">// Custom deleter function</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">customDeleter</span><span class="hljs-params">(MyClass* ptr)</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Custom deleter called for MyClass instance with value: &quot;</span> &lt;&lt; ptr-&gt;value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">delete</span> ptr; <span class="hljs-comment">// You can define your own cleanup logic here</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Create a unique_ptr with a custom deleter</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;MyClass, <span class="hljs-keyword">void</span>(*)(MyClass*)&gt; uniquePtr(<span class="hljs-keyword">new</span> MyClass(<span class="hljs-number">42</span>), customDeleter);
+
+    <span class="hljs-comment">// Use the uniquePtr</span>
+    uniquePtr-&gt;doSomething();
+
+    <span class="hljs-comment">// The custom deleter will be automatically called when the uniquePtr goes out of scope</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="weak-pointer"><a name="weak-pointer" class="anchor-navigation-ex-anchor" href="#weak-pointer"><i class="fa fa-link" aria-hidden="true"></i></a>1.13. weak pointer</h2>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
+
+<span class="hljs-keyword">class</span> MyClass {
+<span class="hljs-keyword">public</span>:
+    MyClass(<span class="hljs-keyword">int</span> value) : value_(value) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass constructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Doing something with value: &quot;</span> &lt;&lt; value_ &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    ~MyClass() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass destructor&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> value_;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Create a shared_ptr to manage the object</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt; sharedPtr = <span class="hljs-built_in">std</span>::make_shared&lt;MyClass&gt;(<span class="hljs-number">42</span>);
+
+    <span class="hljs-comment">// Create a weak_ptr that observes the sharedPtr</span>
+    <span class="hljs-built_in">std</span>::weak_ptr&lt;MyClass&gt; weakPtr = sharedPtr;
+
+    <span class="hljs-comment">// Use the weakPtr to access the object, checking for validity</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">auto</span> lockedSharedPtr = weakPtr.lock()) {
+        <span class="hljs-comment">// The object is still alive</span>
+        lockedSharedPtr-&gt;doSomething();
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// The object has been deleted</span>
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Object has been deleted.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-comment">// Reset the sharedPtr</span>
+    sharedPtr.reset();
+
+    <span class="hljs-comment">// Use the weakPtr again</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">auto</span> lockedSharedPtr = weakPtr.lock()) {
+        lockedSharedPtr-&gt;doSomething();
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Object has been deleted.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Ch12.md" class="navigation navigation-prev " aria-label="Previous page: 12 Dynamic Memory">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Ch12-2.html" class="navigation navigation-next " aria-label="Next page: 2 dynamic array">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1 smart pointer","level":"1.13.1","depth":2,"next":{"title":"2 dynamic array","level":"1.13.2","depth":2,"path":"pages/Ch12/Ch12-2.md","ref":"pages/Ch12/Ch12-2.md","articles":[]},"previous":{"title":"12 Dynamic Memory","level":"1.13","depth":1,"path":"pages/Ch12/Ch12.md","ref":"pages/Ch12/Ch12.md","articles":[{"title":"1 smart pointer","level":"1.13.1","depth":2,"path":"pages/Ch12/Ch12-1.md","ref":"pages/Ch12/Ch12-1.md","articles":[]},{"title":"2 dynamic array","level":"1.13.2","depth":2,"path":"pages/Ch12/Ch12-2.md","ref":"pages/Ch12/Ch12-2.md","articles":[]},{"title":"3 example","level":"1.13.3","depth":2,"path":"pages/Ch12/Ch12-3.md","ref":"pages/Ch12/Ch12-3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","anchor-navigation-ex","expandable-chapters","google-ads"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"google-ads":{"ads":[{"client":"ca-pub-5578548640932751"}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/Ch12/Ch12-1.md","mtime":"2023-11-06T00:39:10.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-06T00:44:30.499Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-google-ads/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
